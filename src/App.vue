@@ -22,7 +22,7 @@
   <nav class="links" style="--items: 5;">
 	<a href="https://www.bscspotter.com/"> <div  class="menu_text"><span>Dashboard</span></div></a>
  <a href="https://www.ultragamerz.com/"  target="_blank"> <div  class="menu_text"><span>News Partners</span></div></a>
- <a ><div><span id="site_logo_menu"> '  <img  data-v-fae5bece  id="site_logo" src="https://i.ibb.co/X8Fv4jC/Logo.png" class="site_logo">' </span>
+ <a ><div><span id="site_logo_menu"> '  <img  data-v-fae5bece  id="site_logo" src="@/assets/images/logos/bscspotter_logo/Logo.png" class="site_logo">' </span>
 
 	<span class="menu_text"></span></div> </a>
     <a href="https://www.bscspotter.com/submit_token"> <div  class="menu_text"><span>Submit Token</span></div></a>

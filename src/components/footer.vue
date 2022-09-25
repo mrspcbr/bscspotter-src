@@ -20,9 +20,9 @@ Contact a financial advisor before making investing decisions.<br>©Copyright BS
   <br>
   <a href="https://www.ultragamerz.com/">News</a>
   <br>
-  <a href="https://www.bscspotter.com/ submit_token">Submit Token</a>
+  <a href="https://www.bscspotter.com/submit_token">Submit Token</a>
   <br>
-  <a href="https://www.bscspotter.com/ contact">Contact Us</a>
+  <a href="https://www.bscspotter.com/contact">Contact Us</a>
 </div>
   </div>
   <div class="column_foot" id="colun_left">
@@ -53,9 +53,9 @@ Contact a financial advisor before making investing decisions.<br>©Copyright BS
   <br>
   <a href="https://www.ultragamerz.com/">News</a>
   <br>
-  <a href="https://www.bscspotter.com/ submit_token">Submit Token</a>
+  <a href="https://www.bscspotter.com/submit_token">Submit Token</a>
   <br>
-  <a href="https://www.bscspotter.com/ contact">Contact Us</a>
+  <a href="https://www.bscspotter.com/contact">Contact Us</a>
 </div>
 
 

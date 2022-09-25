@@ -73,7 +73,7 @@ justify-content: center;">
            <div class="column left2" id="puss_graph" >
                 <TVChartContainer   v-if="isMounted" :symbol="'BSC Spotter'" :interval="'60'" :contractAddress="contractaddress"></TVChartContainer>
      <br><br>
-                <div id="banner_under_graph">  <a href="https://www.bscspotter.com/ contact">  <img src="@/assets/images/ads/your_ad_here.png" alt="pancakeswap" width="500" height="120"></a></div>
+                <div id="banner_under_graph">  <a href="https://www.bscspotter.com/contact">  <img src="@/assets/images/ads/your_ad_here.png" alt="pancakeswap" width="500" height="120"></a></div>
            </div>
            <div id="hide" class="hide"></div>
            <div class="column right3" >
@@ -176,7 +176,7 @@ justify-content: center;">
    <a id="pancake_swap_href" :href="'https://pancakeswap.finance/swap?outputCurrency='+token_page.contractaddress" target="_blank" rel="noopener noreferrer"><img src="@/assets/images/logos/pancakeswap_logo/full/color-black.svg" alt="pancakeswap" width="300" height="100"></a>
            </div></div>
            <div class="column right_ad">  <div id="banner_ad_bottom_right" >
-             <a href="https://www.bscspotter.com/ contact">  <img src="@/assets/images/ads/your_ad_here.png" alt="pancakeswap" width="300" height="100"></a>
+             <a href="https://www.bscspotter.com/contact">  <img src="@/assets/images/ads/your_ad_here.png" alt="pancakeswap" width="300" height="100"></a>
            </div></div>
          </div>
     
@@ -321,7 +321,7 @@ justify-content: center;">
   </div>
   <div slot="viewport" class="flicking-pagination"></div>
 </Flicking> </div>
-<div id="banner_under_graph">  <a href="https://www.bscspotter.com/ contact">  <img src="@/assets/images/ads/your_ad_here.png" alt="pancakeswap" width="500" height="120"></a></div>
+<div id="banner_under_graph">  <a href="https://www.bscspotter.com/contact">  <img src="@/assets/images/ads/your_ad_here.png" alt="pancakeswap" width="500" height="120"></a></div>
 </div> 
 
 <div class="full_col" id="full_col_price"  >
@@ -331,7 +331,7 @@ justify-content: center;">
 </div>
 
 <div class="">  <div id="banner_ad_bottom_right" >
-             <a href="https://www.bscspotter.com/ contact">  <img src="@/assets/images/ads/your_ad_here.png" alt="pancakeswap" width="300" height="100"></a>
+             <a href="https://www.bscspotter.com/contact">  <img src="@/assets/images/ads/your_ad_here.png" alt="pancakeswap" width="300" height="100"></a>
            </div></div>
 <div class="paragraphs">
            <div id="desc_long" >

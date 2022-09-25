@@ -133,7 +133,7 @@
     var symbol = listing_data.symbol
     const token = listing_data.token
     document.getElementById('name_'+token).innerHTML=listing_name
-    document.getElementById('link_'+token+ '_name').href="https://www.bscspotter.com/ token/"+listing_symbol
+    document.getElementById('link_'+token+ '_name').href="https://www.bscspotter.com/token/"+listing_symbol
     document.getElementById('icon_'+token).innerHTML='<img data-v-fae5bece src="'+logo_link_api+ '" class="listing_logo">'
     
     if (kyc==Verified){

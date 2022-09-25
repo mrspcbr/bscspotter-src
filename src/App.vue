@@ -25,10 +25,10 @@
  <a ><div><span id="site_logo_menu"> '  <img  data-v-fae5bece  id="site_logo" src="https://i.ibb.co/X8Fv4jC/Logo.png" class="site_logo">' </span>
 
 	<span class="menu_text"></span></div> </a>
-    <a href="https://www.bscspotter.com/ submit_token"> <div  class="menu_text"><span>Submit Token</span></div></a>
+    <a href="https://www.bscspotter.com/submit_token"> <div  class="menu_text"><span>Submit Token</span></div></a>
 
 
-       <a><div  class="menu_text"><a href="https://www.bscspotter.com/ contact"><span id="span_a" style="color: #9ab " >Contact Us</span></a></div> 	<span class="search_span"><span id="search_check" class="fa-stack fa-lg" style="color:#DBAC04; font-size: clamp(10px, 1.3vw, 18px);">
+       <a><div  class="menu_text"><a href="https://www.bscspotter.com/contact"><span id="span_a" style="color: #9ab " >Contact Us</span></a></div> 	<span class="search_span"><span id="search_check" class="fa-stack fa-lg" style="color:#DBAC04; font-size: clamp(10px, 1.3vw, 18px);">
   <span class="fa fa-circle-thin fa-stack-2x" style="color:#DBAC04"></span>
   <span class="fa  fa-search  fa-stack-1x" style="color:#DBAC04"></span></span>
 </span></a>
@@ -44,8 +44,8 @@
   <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
   <a href="https://www.bscspotter.com/">Dashboard</a>
   <a href="https://www.ultragamerz.com/">News Partners</a>
-  <a href="https://www.bscspotter.com/ submit_token">Submit Token</a>
-  <a href="https://www.bscspotter.com/ contact">Contact Us</a>
+  <a href="https://www.bscspotter.com/submit_token">Submit Token</a>
+  <a href="https://www.bscspotter.com/contact">Contact Us</a>
 </div>
 
 <div id="search_box" style="display: none;"><searchbar></searchbar></div>

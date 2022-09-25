@@ -64,7 +64,7 @@
         <div class="column left2" id="puss_graph" >
              <TVChartContainer  :symbol="'BSC Spotter'" :interval="'60'" :contractAddress="'0xdd823661c23bcfcda52169836dcc1ca90ad14e36'"></TVChartContainer>
   <br><br>
-             <div id="banner_under_graph">  <a href="https://www.bscspotter.com/ #/contact">  <img src="@/assets/images/ads/your_ad_here.png" alt="pancakeswap" width="500" height="120"></a></div>
+             <div id="banner_under_graph">  <a href="https://www.bscspotter.com/#/contact">  <img src="@/assets/images/ads/your_ad_here.png" alt="pancakeswap" width="500" height="120"></a></div>
         </div>
         
         <div class="column right3" >
@@ -165,7 +165,7 @@
 <a id="pancake_swap_href" href="" target="_blank" rel="noopener noreferrer"><img src="@/assets/images/logos/pancakeswap_logo/full/color-black.svg" alt="pancakeswap" width="300" height="100"></a>
         </div></div>
         <div class="column right_ad">  <div id="banner_ad_bottom_right" >
-          <a href="https://www.bscspotter.com/ #/contact">  <img src="@/assets/images/ads/your_ad_here.png" alt="pancakeswap" width="300" height="100"></a>
+          <a href="https://www.bscspotter.com/#/contact">  <img src="@/assets/images/ads/your_ad_here.png" alt="pancakeswap" width="300" height="100"></a>
         </div></div>
       </div>
  

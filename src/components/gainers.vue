@@ -193,30 +193,30 @@ export default {
   const data_reverse = data_slice.reverse()
 
 
-document.getElementById('new_logo_0').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_reverse[0].symbol+'"><img data-v-760eefb2 src="'+data_reverse[0].logo_link+ '"class="gainers_icon"></a>'
-document.getElementById('new_name_0').innerHTML= '<a href="https://www.bscspotter.com/ token/'+data_reverse[0].symbol+'">'+data_reverse[0].name+'</a>'
+document.getElementById('new_logo_0').innerHTML='<a href="https://www.bscspotter.com/token/'+data_reverse[0].symbol+'"><img data-v-760eefb2 src="'+data_reverse[0].logo_link+ '"class="gainers_icon"></a>'
+document.getElementById('new_name_0').innerHTML= '<a href="https://www.bscspotter.com/token/'+data_reverse[0].symbol+'">'+data_reverse[0].name+'</a>'
 document.getElementById('new_symbol_0').innerHTML=data_reverse[0].symbol
 
-document.getElementById('new_logo_1').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_reverse[1].symbol+'"><img data-v-760eefb2 src="'+data_reverse[1].logo_link+ '"class="gainers_icon"></a>'
+document.getElementById('new_logo_1').innerHTML='<a href="https://www.bscspotter.com/token/'+data_reverse[1].symbol+'"><img data-v-760eefb2 src="'+data_reverse[1].logo_link+ '"class="gainers_icon"></a>'
 document.getElementById('new_symbol_1').innerHTML=data_reverse[1].symbol
-document.getElementById('new_name_1').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_reverse[1].symbol+'">'+data_reverse[1].name+'</a>'
+document.getElementById('new_name_1').innerHTML='<a href="https://www.bscspotter.com/token/'+data_reverse[1].symbol+'">'+data_reverse[1].name+'</a>'
 
-document.getElementById('new_logo_2').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_reverse[2].symbol+'"><img data-v-760eefb2 src="'+data_reverse[2].logo_link+ '"class="gainers_icon"></a>'
-document.getElementById('new_name_2').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_reverse[2].symbol+'">'+data_reverse[2].name+'</a>'
+document.getElementById('new_logo_2').innerHTML='<a href="https://www.bscspotter.com/token/'+data_reverse[2].symbol+'"><img data-v-760eefb2 src="'+data_reverse[2].logo_link+ '"class="gainers_icon"></a>'
+document.getElementById('new_name_2').innerHTML='<a href="https://www.bscspotter.com/token/'+data_reverse[2].symbol+'">'+data_reverse[2].name+'</a>'
 document.getElementById('new_symbol_2').innerHTML=data_reverse[2].symbol
 
 
 
-document.getElementById('new_logo_0_smallDis').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_reverse[0].symbol+'"><img data-v-760eefb2 src="'+data_reverse[0].logo_link+ '"class="gainers_icon"></a>'
-document.getElementById('new_name_0_smallDis').innerHTML= '<a href="https://www.bscspotter.com/ token/'+data_reverse[0].symbol+'">'+data_reverse[0].name+'</a>'
+document.getElementById('new_logo_0_smallDis').innerHTML='<a href="https://www.bscspotter.com/token/'+data_reverse[0].symbol+'"><img data-v-760eefb2 src="'+data_reverse[0].logo_link+ '"class="gainers_icon"></a>'
+document.getElementById('new_name_0_smallDis').innerHTML= '<a href="https://www.bscspotter.com/token/'+data_reverse[0].symbol+'">'+data_reverse[0].name+'</a>'
 document.getElementById('new_symbol_0_smallDis').innerHTML=data_reverse[0].symbol
 
-document.getElementById('new_logo_1_smallDis').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_reverse[1].symbol+'"><img data-v-760eefb2 src="'+data_reverse[1].logo_link+ '"class="gainers_icon"></a>'
+document.getElementById('new_logo_1_smallDis').innerHTML='<a href="https://www.bscspotter.com/token/'+data_reverse[1].symbol+'"><img data-v-760eefb2 src="'+data_reverse[1].logo_link+ '"class="gainers_icon"></a>'
 document.getElementById('new_symbol_1_smallDis').innerHTML=data_reverse[1].symbol
-document.getElementById('new_name_1_smallDis').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_reverse[1].symbol+'">'+data_reverse[1].name+'</a>'
+document.getElementById('new_name_1_smallDis').innerHTML='<a href="https://www.bscspotter.com/token/'+data_reverse[1].symbol+'">'+data_reverse[1].name+'</a>'
 
-document.getElementById('new_logo_2_smallDis').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_reverse[2].symbol+'"><img data-v-760eefb2 src="'+data_reverse[2].logo_link+ '"class="gainers_icon"></a>'
-document.getElementById('new_name_2_smallDis').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_reverse[2].symbol+'">'+data_reverse[2].name+'</a>'
+document.getElementById('new_logo_2_smallDis').innerHTML='<a href="https://www.bscspotter.com/token/'+data_reverse[2].symbol+'"><img data-v-760eefb2 src="'+data_reverse[2].logo_link+ '"class="gainers_icon"></a>'
+document.getElementById('new_name_2_smallDis').innerHTML='<a href="https://www.bscspotter.com/token/'+data_reverse[2].symbol+'">'+data_reverse[2].name+'</a>'
 document.getElementById('new_symbol_2_smallDis').innerHTML=data_reverse[2].symbol
 
 
@@ -228,32 +228,32 @@ const data = await axios.get('https://www.api.bscspotter.com/top_gainers')
 const data_json=data.data
 
 
-document.getElementById('gain_logo_1').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[2].symbol+'"><img data-v-760eefb2 src="'+data_json[2].logo+ '"class="gainers_icon"></a>'
-document.getElementById('gain_name_1').innerHTML= '<a href="https://www.bscspotter.com/ token/'+data_json[2].symbol+'">'+data_json[2].symbol+'</a>'
+document.getElementById('gain_logo_1').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[2].symbol+'"><img data-v-760eefb2 src="'+data_json[2].logo+ '"class="gainers_icon"></a>'
+document.getElementById('gain_name_1').innerHTML= '<a href="https://www.bscspotter.com/token/'+data_json[2].symbol+'">'+data_json[2].symbol+'</a>'
 document.getElementById('gain_perc_1').innerHTML=data_json[2].percent_change
 
 
-document.getElementById('gain_logo_2').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[1].symbol+'"><img data-v-760eefb2 src="'+data_json[1].logo+ '"class="gainers_icon"></a>'
-document.getElementById('gain_name_2').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[1].symbol+'">'+data_json[1].symbol+'</a>'
+document.getElementById('gain_logo_2').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[1].symbol+'"><img data-v-760eefb2 src="'+data_json[1].logo+ '"class="gainers_icon"></a>'
+document.getElementById('gain_name_2').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[1].symbol+'">'+data_json[1].symbol+'</a>'
 document.getElementById('gain_perc_2').innerHTML=data_json[1].percent_change
 
 
-document.getElementById('gain_logo_3').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[0].symbol+'"><img data-v-760eefb2 src="'+data_json[0].logo+ '"class="gainers_icon"></a>'
-document.getElementById('gain_name_3').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[0].symbol+'">'+data_json[0].symbol+'</a>'
+document.getElementById('gain_logo_3').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[0].symbol+'"><img data-v-760eefb2 src="'+data_json[0].logo+ '"class="gainers_icon"></a>'
+document.getElementById('gain_name_3').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[0].symbol+'">'+data_json[0].symbol+'</a>'
 document.getElementById('gain_perc_3').innerHTML=data_json[0].percent_change
 
-document.getElementById('gain_logo_1_smallDis').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[2].symbol+'"><img data-v-760eefb2 src="'+data_json[2].logo+ '"class="gainers_icon"></a>'
-document.getElementById('gain_name_1_smallDis').innerHTML= '<a href="https://www.bscspotter.com/ token/'+data_json[2].symbol+'">'+data_json[2].symbol+'</a>'
+document.getElementById('gain_logo_1_smallDis').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[2].symbol+'"><img data-v-760eefb2 src="'+data_json[2].logo+ '"class="gainers_icon"></a>'
+document.getElementById('gain_name_1_smallDis').innerHTML= '<a href="https://www.bscspotter.com/token/'+data_json[2].symbol+'">'+data_json[2].symbol+'</a>'
 document.getElementById('gain_perc_1_smallDis').innerHTML=data_json[2].percent_change
 
 
-document.getElementById('gain_logo_2_smallDis').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[1].symbol+'"><img data-v-760eefb2 src="'+data_json[1].logo+ '"class="gainers_icon"></a>'
-document.getElementById('gain_name_2_smallDis').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[1].symbol+'">'+data_json[1].symbol+'</a>'
+document.getElementById('gain_logo_2_smallDis').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[1].symbol+'"><img data-v-760eefb2 src="'+data_json[1].logo+ '"class="gainers_icon"></a>'
+document.getElementById('gain_name_2_smallDis').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[1].symbol+'">'+data_json[1].symbol+'</a>'
 document.getElementById('gain_perc_2_smallDis').innerHTML=data_json[1].percent_change
 
 
-document.getElementById('gain_logo_3_smallDis').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[0].symbol+'"><img data-v-760eefb2 src="'+data_json[0].logo+ '"class="gainers_icon"></a>'
-document.getElementById('gain_name_3_smallDis').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[0].symbol+'">'+data_json[0].symbol+'</a>'
+document.getElementById('gain_logo_3_smallDis').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[0].symbol+'"><img data-v-760eefb2 src="'+data_json[0].logo+ '"class="gainers_icon"></a>'
+document.getElementById('gain_name_3_smallDis').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[0].symbol+'">'+data_json[0].symbol+'</a>'
 document.getElementById('gain_perc_3_smallDis').innerHTML=data_json[0].percent_change
 
 }top_gainers()
@@ -265,33 +265,33 @@ const data = await axios.get('https://www.api.bscspotter.com/token_views/')
 const data_reverse = data.data.reverse()
 const data_json=data_reverse
 
-document.getElementById('trending_logo_0').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[2].symbol+'"><img data-v-760eefb2 src="'+data_json[2].logo_link+ '"class="gainers_icon"></a>'
-document.getElementById('trending_symbol_0').innerHTML= '<a href="https://www.bscspotter.com/ token/'+data_json[2].symbol+'">'+data_json[2].symbol+'</a>'
-document.getElementById('trending_name_0').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[2].symbol+'">'+data_json[2].name+'</a>'
+document.getElementById('trending_logo_0').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[2].symbol+'"><img data-v-760eefb2 src="'+data_json[2].logo_link+ '"class="gainers_icon"></a>'
+document.getElementById('trending_symbol_0').innerHTML= '<a href="https://www.bscspotter.com/token/'+data_json[2].symbol+'">'+data_json[2].symbol+'</a>'
+document.getElementById('trending_name_0').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[2].symbol+'">'+data_json[2].name+'</a>'
 
 
-document.getElementById('trending_logo_1').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[1].symbol+'"><img data-v-760eefb2 src="'+data_json[1].logo_link+ '"class="gainers_icon"></a>'
-document.getElementById('trending_symbol_1').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[1].symbol+'">'+data_json[1].symbol+'</a>'
-document.getElementById('trending_name_1').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[1].symbol+'">'+data_json[1].name+'</a>'
+document.getElementById('trending_logo_1').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[1].symbol+'"><img data-v-760eefb2 src="'+data_json[1].logo_link+ '"class="gainers_icon"></a>'
+document.getElementById('trending_symbol_1').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[1].symbol+'">'+data_json[1].symbol+'</a>'
+document.getElementById('trending_name_1').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[1].symbol+'">'+data_json[1].name+'</a>'
 
 
-document.getElementById('trending_logo_2').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[0].symbol+'"><img data-v-760eefb2 src="'+data_json[0].logo_link+ '"class="gainers_icon"></a>'
-document.getElementById('trending_symbol_2').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[0].symbol+'">'+data_json[0].symbol+'</a>'
-document.getElementById('trending_name_2').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[0].symbol+'">'+data_json[0].name+'</a>'
+document.getElementById('trending_logo_2').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[0].symbol+'"><img data-v-760eefb2 src="'+data_json[0].logo_link+ '"class="gainers_icon"></a>'
+document.getElementById('trending_symbol_2').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[0].symbol+'">'+data_json[0].symbol+'</a>'
+document.getElementById('trending_name_2').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[0].symbol+'">'+data_json[0].name+'</a>'
 
-document.getElementById('trending_logo_0_smallDis').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[2].symbol+'"><img data-v-760eefb2 src="'+data_json[2].logo_link+ '"class="gainers_icon"></a>'
-document.getElementById('trending_symbol_0_smallDis').innerHTML= '<a href="https://www.bscspotter.com/ token/'+data_json[2].symbol+'">'+data_json[2].symbol+'</a>'
-document.getElementById('trending_name_0_smallDis').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[2].symbol+'">'+data_json[2].name+'</a>'
-
-
-document.getElementById('trending_logo_1_smallDis').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[1].symbol+'"><img data-v-760eefb2 src="'+data_json[1].logo_link+ '"class="gainers_icon"></a>'
-document.getElementById('trending_symbol_1_smallDis').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[1].symbol+'">'+data_json[1].symbol+'</a>'
-document.getElementById('trending_name_1_smallDis').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[1].symbol+'">'+data_json[1].name+'</a>'
+document.getElementById('trending_logo_0_smallDis').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[2].symbol+'"><img data-v-760eefb2 src="'+data_json[2].logo_link+ '"class="gainers_icon"></a>'
+document.getElementById('trending_symbol_0_smallDis').innerHTML= '<a href="https://www.bscspotter.com/token/'+data_json[2].symbol+'">'+data_json[2].symbol+'</a>'
+document.getElementById('trending_name_0_smallDis').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[2].symbol+'">'+data_json[2].name+'</a>'
 
 
-document.getElementById('trending_logo_2_smallDis').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[0].symbol+'"><img data-v-760eefb2 src="'+data_json[0].logo_link+ '"class="gainers_icon"></a>'
-document.getElementById('trending_symbol_2_smallDis').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[0].symbol+'">'+data_json[0].symbol+'</a>'
-document.getElementById('trending_name_2_smallDis').innerHTML='<a href="https://www.bscspotter.com/ token/'+data_json[0].symbol+'">'+data_json[0].name+'</a>'
+document.getElementById('trending_logo_1_smallDis').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[1].symbol+'"><img data-v-760eefb2 src="'+data_json[1].logo_link+ '"class="gainers_icon"></a>'
+document.getElementById('trending_symbol_1_smallDis').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[1].symbol+'">'+data_json[1].symbol+'</a>'
+document.getElementById('trending_name_1_smallDis').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[1].symbol+'">'+data_json[1].name+'</a>'
+
+
+document.getElementById('trending_logo_2_smallDis').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[0].symbol+'"><img data-v-760eefb2 src="'+data_json[0].logo_link+ '"class="gainers_icon"></a>'
+document.getElementById('trending_symbol_2_smallDis').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[0].symbol+'">'+data_json[0].symbol+'</a>'
+document.getElementById('trending_name_2_smallDis').innerHTML='<a href="https://www.bscspotter.com/token/'+data_json[0].symbol+'">'+data_json[0].name+'</a>'
 
 } trending()
         }
@@ -300,7 +300,7 @@ document.getElementById('trending_name_2_smallDis').innerHTML='<a href="https://
 
 
 
-//'<a href="https://www.bscspotter.com/ #/token/'+data_reverse[2].symbol+'">'+data_reverse[2].name+'</a>'
+//'<a href="https://www.bscspotter.com/#/token/'+data_reverse[2].symbol+'">'+data_reverse[2].name+'</a>'
 </script>
 
 

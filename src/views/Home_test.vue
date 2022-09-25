@@ -71,17 +71,17 @@
     <tr height="80px" class="Home_Page">
    
     <td class="icon_0"> <img src="https://assets.coingecko.com/coins/images/25633/large/cmc.png?1654593879" class="listing_logo"> </td>
-    <td >  <a href="https://www.bscspotter.com/#/token/zpro"><p class='name' id="name_1">   &nbsp;ZAT Project</p></a> </td>
+    <td >  <a href="https://www.bscspotter.com/ #/token/zpro"><p class='name' id="name_1">   &nbsp;ZAT Project</p></a> </td>
     <td class='price' Id="price_1">  </td>
     <td class="rating" id="rating_1" >  </td>
     <td class="mcap" id="MCAP_1" ></td>
     <td class="liquidity" id="liquidity_1"> </td>
-    <td class="info" id="info_1">  <a href="https://www.bscspotter.com/#/token/zpro">  <i class='fa fa-users' style='font-size: 25px;color:#DBAC04'></i></a></td>
+    <td class="info" id="info_1">  <a href="https://www.bscspotter.com/ #/token/zpro">  <i class='fa fa-users' style='font-size: 25px;color:#DBAC04'></i></a></td>
   </tr >
   <tr height="80px" class="Home_Page">
    
     <td class="icon_0"> <img src="https://aircentralstation.com/images/logo2-removebg-preview.png"  class="listing_logo"> </td>
-    <td > <a href="https://www.bscspotter.com/#/token/acs"> <p class='name' id="name_0">   &nbsp;Air Centeral Station</p></a></td>
+    <td > <a href="https://www.bscspotter.com/ #/token/acs"> <p class='name' id="name_0">   &nbsp;Air Centeral Station</p></a></td>
     <td class='price' Id="price_0">  </td>
     <td class="rating" id="rating_0" >  </td>
     <td class="mcap" id="MCAP_0" ></td>
@@ -292,7 +292,7 @@ const kyc =(listing_data.kyc)
 const team = (listing_data.team)
 const logo_link_api = (listing_data.logo_link)
 document.getElementById('name_2').innerHTML=listing_name
-document.getElementById('link_2_name').href="https://www.bscspotter.com/#/token/"+listing_symbol
+document.getElementById('link_2_name').href="https://www.bscspotter.com/ #/token/"+listing_symbol
 document.getElementById('icon_2').innerHTML='<img data-v-fae5bece src="'+logo_link_api+ '" class="listing_logo">'
 
 if (kyc==Verified){
@@ -381,7 +381,7 @@ const kyc =(listing_data.kyc)
 const team = (listing_data.team)
 const logo_link_api = (listing_data.logo_link)
 document.getElementById('name_3').innerHTML=listing_name
-document.getElementById('link_3_name').href="https://www.bscspotter.com/#/token/"+listing_symbol
+document.getElementById('link_3_name').href="https://www.bscspotter.com/ #/token/"+listing_symbol
 document.getElementById('icon_3').innerHTML='<img data-v-fae5bece src="'+logo_link_api+ '" class="listing_logo">'
 
 if (kyc==Verified){
@@ -470,7 +470,7 @@ const kyc =(listing_data.kyc)
 const team = (listing_data.team)
 const logo_link_api = (listing_data.logo_link)
 document.getElementById('name_4').innerHTML=listing_name
-document.getElementById('link_4_name').href="https://www.bscspotter.com/#/token/"+listing_symbol
+document.getElementById('link_4_name').href="https://www.bscspotter.com/ #/token/"+listing_symbol
 document.getElementById('icon_4').innerHTML='<img data-v-fae5bece src="'+logo_link_api+ '" class="listing_logo">'
 
 if (kyc==Verified){

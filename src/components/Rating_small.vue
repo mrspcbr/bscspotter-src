@@ -11,12 +11,12 @@
 <h1 class="rating_desc_2">Gems Rating</h1>
 <div class="icons_under">
    
-<div class = 'ratingIcons'><box-icon name='coin-stack' type='solid' color="white"  > </box-icon><span class="iconText" id="liq"> LP: <span id='liq_score'>{{liq_score}}</span>/100</span></div>&nbsp;
+<div class = 'ratingIcons'><box-icon name='coin-stack' type='solid' color="white"  > </box-icon><span class="iconText2" id="liq"> LP: <span id='liq_score'>{{liq_score}}</span>/100</span></div>&nbsp;
 
 
-<div class = 'ratingIcons'><box-icon name='id-card' type='solid' color="white" ></box-icon><span class="iconText" id="KYC">KYC: &nbsp; {{kyc_status}}</span></div>&nbsp;&nbsp;&nbsp;
-<div class = 'ratingIcons'><box-icon type='solid' color='white' name='wrench' ></box-icon><span class="iconText" id="Token_Type">Utility: &nbsp; {{utility}}</span></div>&nbsp;&nbsp;&nbsp;
-<div class = 'ratingIcons'><box-icon name='group' type='solid' color="white"  ></box-icon><span class="iconText" id="Dox">Team: &nbsp; {{team}}</span></div>&nbsp;&nbsp;&nbsp;</div>
+<div class = 'ratingIcons'><box-icon name='id-card' type='solid' color="white" ></box-icon><span class="iconText2" id="KYC">KYC: &nbsp; <a target="_blank" rel="noopener noreferrer" :href=kyc_link> {{kyc_status}}</a></span></div>&nbsp;&nbsp;&nbsp;
+<div class = 'ratingIcons'><box-icon type='solid' color='white' name='wrench' ></box-icon><span class="iconText2" id="Token_Type">Utility: &nbsp; {{utility}}</span></div>&nbsp;&nbsp;&nbsp;
+<div class = 'ratingIcons'><box-icon name='group' type='solid' color="white"  ></box-icon><span class="iconText2" id="Dox">Team: &nbsp; {{team}}</span></div>&nbsp;&nbsp;&nbsp;</div>
 
 
 </div>
@@ -219,7 +219,7 @@ justify-content: center;
  padding:5px
 }
 
-.ratingIcons .iconText {
+.ratingIcons .iconText2 {
   visibility: hidden;
   width: 150px;
   background-color: black;
@@ -236,7 +236,7 @@ justify-content: center;
 
 
 
-.ratingIcons .iconText:after {
+.ratingIcons .iconText2:after {
   content: " ";
   position: absolute;
   bottom: 105%;  /* At the top of the tooltip */
@@ -247,7 +247,7 @@ justify-content: center;
   border-color: transparent transparent black transparent;
 }
 
-.ratingIcons:hover .iconText {
+.ratingIcons:hover .iconText2 {
   visibility: visible;
 }
 .progress_section{

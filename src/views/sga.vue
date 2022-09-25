@@ -135,7 +135,7 @@ const team = (listing_data.team)
 const logo_link_api = (listing_data.logo_link)
 var symbol = listing_data.symbol
 document.getElementById('name_'+symbol).innerHTML=listing_name
-document.getElementById('link_'+symbol+ '_name').href="https://www.bscspotter.com/#/token/"+listing_symbol
+document.getElementById('link_'+symbol+ '_name').href="https://www.bscspotter.com/ #/token/"+listing_symbol
 document.getElementById('icon_'+symbol).innerHTML='<img data-v-fae5bece src="'+logo_link_api+ '" class="listing_logo">'
 
 if (kyc==Verified){

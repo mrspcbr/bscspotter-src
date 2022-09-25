@@ -14,7 +14,7 @@
 <div class = 'ratingIcons'><box-icon name='coin-stack' type='solid' color="white"  > </box-icon><span class="iconText" id="liq"> LP: <span id='liq_score'>{{liq_score}}</span>/100</span></div>&nbsp;
 
 
-<div class = 'ratingIcons'><box-icon name='id-card' type='solid' color="white" ></box-icon><span class="iconText" id="KYC">KYC: &nbsp; {{kyc_status}}</span></div>&nbsp;&nbsp;&nbsp;
+<div class = 'ratingIcons'><box-icon name='id-card' type='solid' color="white" ></box-icon><span class="iconText" id="KYC">KYC: &nbsp;<a target="_blank" rel="noopener noreferrer" :href=kyc_link> {{kyc_status}}</a></span></div>&nbsp;&nbsp;&nbsp;
 <div class = 'ratingIcons'><box-icon type='solid' color='white' name='wrench' ></box-icon><span class="iconText" id="Token_Type">Utility: &nbsp; {{utility}}</span></div>&nbsp;&nbsp;&nbsp;
 <div class = 'ratingIcons'><box-icon name='group' type='solid' color="white"  ></box-icon><span class="iconText" id="Dox">Team: &nbsp; {{team}}</span></div>&nbsp;&nbsp;&nbsp;</div>
 
@@ -141,7 +141,9 @@ document.getElementById('hide_test').innerHTML = final_score
 </script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Titillium+Web:ital,wght@0,200;0,600;1,700&display=swap');
-.column_right22{ border-radius: 45px;
+.column_right22{ 
+  overflow: visible !important;
+  border-radius: 45px;
   width:100%;
 overflow: hidden;
  position: relative;
@@ -225,6 +227,7 @@ justify-content: center;
 }
 
 .ratingIcons .iconText {
+  font-size: clamp(14px, 1.3vw, 16px);
   visibility: hidden;
   width: 150px;
   background-color: black;
@@ -242,6 +245,7 @@ justify-content: center;
 
 
 .ratingIcons .iconText:after {
+
   content: " ";
   position: absolute;
   bottom: 105%;  /* At the top of the tooltip */

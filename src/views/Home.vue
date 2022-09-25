@@ -903,7 +903,7 @@ tr.forEach(Home_Page => {
     
   }
   .pagination a {
-  color: black;
+  color: white;
   float: center;
   padding: 8px 16px;
   text-decoration: none;

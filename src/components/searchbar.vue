@@ -93,10 +93,10 @@ const displayCharacters = (characters) => {
     const htmlString = characters
         .map((character) => {
             return `
-            <a href="https://www.bscspotter.com/token/${character.symbol}"> <li >
+            <a href="https://www.bscspotter.com/ token/${character.symbol}"> <li >
            <table>
             <tr>
-<td data-v-7bf2700b class = 'table_logo' id="gain_lsogo_1" class="links"><a href="https://www.bscspotter.com/token/${character.symbol}"><img data-v-7bf2700b src="${character.logo_link}" alt="logo_project" class="gainers_icon"></a></td>
+<td data-v-7bf2700b class = 'table_logo' id="gain_lsogo_1" class="links"><a href="https://www.bscspotter.com/ token/${character.symbol}"><img data-v-7bf2700b src="${character.logo_link}" alt="logo_project" class="gainers_icon"></a></td>
 <td data-v-7bf2700b class = 'table_name' id="gain_nasme_1" class="links">${character.name}</td>
 <td data-v-7bf2700b class = 'table_symbol' id="gain_symbol_1" class="links">${character.symbol}</td>
 

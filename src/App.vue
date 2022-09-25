@@ -75,7 +75,8 @@ export default {
     contract_address,
 	
     searchbar
-    }
+    },
+	
 };
 window.addEventListener('load', (event) => {
 	var opennav = document.getElementById("openNav");
@@ -94,14 +95,19 @@ window.addEventListener('load', (event) => {
 var serach_button = document.getElementById('search_check')
 var search_box = document.getElementById('search_box')
 var search_mobile = document.getElementById('search_check_mobile')
+var serach_box = document.getElementById('click_search')
+var search_bar = document.getElementById('searchBar')
 search_mobile.addEventListener('click', openSearch)
 serach_button.addEventListener('click', openSearch)
 function openSearch(){
 	var x = document.getElementById("search_box");
   if (x.style.display === "none") {
     x.style.display = "block";
+
   } else {
+	serach_box.style.display="none"
     x.style.display = "none";
+	search_bar.value = ""
   }
 
 }

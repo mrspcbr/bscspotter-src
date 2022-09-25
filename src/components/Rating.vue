@@ -14,9 +14,9 @@
 <div class = 'ratingIcons'><box-icon name='coin-stack' type='solid' color="white"  > </box-icon><span class="iconText" id="liq"> LP: <span id='liq_score'>{{liq_score}}</span>/100</span></div>&nbsp;
 
 
-<div class = 'ratingIcons'><box-icon name='id-card' type='solid' color="white" ></box-icon><span class="iconText" id="KYC">KYC: &nbsp;<a target="_blank" rel="noopener noreferrer" :href=kyc_link> {{kyc_status}}</a></span></div>&nbsp;&nbsp;&nbsp;
-<div class = 'ratingIcons'><box-icon type='solid' color='white' name='wrench' ></box-icon><span class="iconText" id="Token_Type">Utility: &nbsp; {{utility}}</span></div>&nbsp;&nbsp;&nbsp;
-<div class = 'ratingIcons'><box-icon name='group' type='solid' color="white"  ></box-icon><span class="iconText" id="Dox">Team: &nbsp; {{team}}</span></div>&nbsp;&nbsp;&nbsp;</div>
+<div class = 'ratingIcons'><box-icon name='id-card' type='solid' color="white" ></box-icon><span class="iconText" id="KYC">KYC: <a target="_blank" rel="noopener noreferrer" id="kyc_link" :href=kyc_link> {{kyc_status}}</a></span></div>&nbsp;&nbsp;&nbsp;
+<div class = 'ratingIcons'><box-icon type='solid' color='white' name='wrench' ></box-icon><span class="iconText" id="Token_Type">Utility: {{utility}}</span></div>&nbsp;&nbsp;&nbsp;
+<div class = 'ratingIcons'><box-icon name='group' type='solid' color="white"  ></box-icon><span class="iconText" id="Dox">Team: {{team}}</span></div>&nbsp;&nbsp;&nbsp;</div>
 
 
 </div>
@@ -58,16 +58,16 @@ var liq_score = Number(document.getElementById('liq_score').innerHTML)
 
 
 
-var kyc_html = document.querySelector('#KYC').innerHTML 
+var kyc_html = document.querySelector('#kyc_link').innerHTML 
 
-let y = "KYC: Verified"
-
+let y = " Verified"
+console.log(kyc_html)
 if (kyc_html==y){
 var kyc_score = 30
 }
 
 else {
-var kyc_score = 0
+var kyc_score = -5
 }
 
 
@@ -99,6 +99,7 @@ var utility_score = 10
 
 
 var team_html=document.querySelector('#Dox').innerHTML 
+console.log(team_html)
 const doxxed = "Team: Doxxed"
 
 if (team_html==doxxed){
@@ -111,11 +112,11 @@ var team_score=-10
 var progress_html = document.querySelector(".progress_bar")
 
 var addition = ((team_score+utility_score+kyc_score+liq_score)/220)
-
+console.log(team_score,utility_score,kyc_score,liq_score)
 var final_score=Math.round((addition)*100)
 
 var progress = await final_score
-
+console.log(progress)
 if (final_score>80){
 progress_html.style=`--primary:#036b18; --value:${progress}`
 }

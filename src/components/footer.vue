@@ -78,7 +78,7 @@ Contact a financial advisor before making investing decisions.<br>©Copyright BS
 
 
    
-
+<div style="display: none">Use BSC Spotter to find low-cap Crypto Gems on the Binance Smart Chain. With our rating system finding low-cap gems is very easy! </div>
   </div>
   
  

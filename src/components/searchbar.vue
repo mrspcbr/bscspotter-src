@@ -152,6 +152,15 @@ z-index: 20;
     
   }
   @media (max-width: 500px) {
+.table_logo{
+  width: 30% !important;
+}
+    .gainers_icon{
+      width: 30px !important;
+    }
+    td{
+      font-size: 12px !important
+    }
     #click_search{
       width: 220px !important;
       height: 200px !important;

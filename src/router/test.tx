@@ -1,0 +1,40 @@
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Home from '../views/Home.vue';
+import TradingView from '../views/TradingView.vue';
+import acstoken from '../views/acs_token.vue';
+import Page1 from '../views/page1'
+Vue.use(VueRouter);
+
+const routes = [
+    {
+        path: '/',
+        name: 'Home',
+        component: Home
+    },
+  {path:'/acs',
+name: 'acs_token',
+component: acstoken},
+    {
+        path: '/token',
+        name: 'Page1',
+        component: Page1,
+        children: [
+            {
+                path:'/acs',
+    name: 'acs_token',
+    component: acstoken
+            }
+        ]
+    }
+
+
+];
+Vue.prototype.$appName = 'My App'
+const router = new VueRouter({
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes
+});
+
+export default router;

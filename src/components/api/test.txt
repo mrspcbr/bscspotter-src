@@ -1,0 +1,151 @@
+import axios from 'axios';
+import * as Bitquery from './../TVChartContainer/Bitquery';
+
+
+
+const configurationData = {
+    supported_resolutions: ['15','30', '60']
+};
+
+export default(baseCurrency) => ({
+    
+    onReady: (callback) => {
+        setTimeout(() => callback(configurationData));
+    },
+
+    resolveSymbol: async (symbolName, onSymbolResolvedCallback, onResolveErrorCallback) =>{
+var address = {baseCurrency, }
+
+      const response = await axios.get(
+        'https://www.api.bscspotter.com/info/'+baseCurrency)
+        
+        const coin = response.data
+          
+
+        
+
+        if(!coin){
+            onResolveErrorCallback();
+        }else{
+            const symbol = {
+                ticker: symbolName,
+                name: `${coin.symbol}/USD`,
+                session: '24x7',
+                timezone: 'Etc/UTC',
+                minmov: 1,
+                pricescale: 10000000,
+                has_intraday: true,
+                intraday_multipliers: ['1', '5', '15', '30', '60'],
+                has_empty_bars: true,
+                has_weekly_and_monthly: false,
+                supported_resolutions: configurationData.supported_resolutions,
+                volume_precision: 1,
+                data_status: 'streaming',
+            }
+            onSymbolResolvedCallback(symbol)
+        }console.log('got info')
+    }, 
+
+    getBars: async(symbolInfo, resolution, periodParams, onHistoryCallback, onErrorCallback) =>{
+       
+        try{
+            if (resolution==='1D') {
+                resolution = 1440;
+            }
+            const response2 = await axios.get(
+                'https://www.api.bscspotter.com/chart/'+baseCurrency)
+
+                var data = await response2.data
+                var results_max =[]
+                const uniqueIds = [];
+
+
+                function search(nameKey, myArray){
+                    for (var i=0; i < myArray.length; i++) {
+                        if (myArray[i].high === nameKey) {
+                            return myArray[i];
+                        }
+                    }
+                }
+           
+                {
+                    for (var i=0; i < data.length; i++) {
+                        {
+                            let arr = [];
+                           arr.push(data[i].timeInterval.minute)
+                           
+                            var dates_split = JSON.stringify(arr)
+                            var dates_string= dates_split.split(",")
+                            var time_string_clean = dates_string.replace(/["\"[\\\"\00Z\\"\""]+/g,'')
+                            var time_clean = time_string_clean.replace(/ /g, "")
+                            var time_date_xyz = time_clean.substring(0, 10)
+                            var unix = new Date(time_date_xyz).getTime() / 1000
+                            console.log(unix)
+                           
+                          
+                            
+                        
+                        
+                    }
+                }
+                }
+
+               
+
+                var array = data
+                
+               
+                var results_max_date = search(x_max ,array)
+                console.log(results_max_date)
+                var date_bitquery = (results_max_date.timeInterval.minute)
+                var date_bitquery_string = JSON.stringify(date_bitquery)
+                var date_stamp = date_bitquery_string.substring(1,11)
+               var bitquery_unix = new Date(date_stamp).getTime() / 1000
+            
+
+                
+               const bnb_ohlc_response= await axios.get('https://www.api.bscspotter.com/bnb_ohlc')
+               var bnb_ohlc_data = bnb_ohlc_response.data
+               let A = bitquery_unix
+               const findNumber = (array, number) => 
+  array.flatMap((sub, idx) => 
+  sub.indexOf(number) > -1 ? [idx] : []) 
+  var bnb_ohlc_block = (findNumber(bnb_ohlc_data, A));
+    var bnb_ohlc=bnb_ohlc_data[bnb_ohlc_block][2] 
+   
+
+    var ath_usd = x_max_string*bnb_ohlc
+   
+  var usd = "$"
+    if (ath_usd<0.01){
+        function expo(x, f) {
+            return Number.parseFloat(ath_usd).toExponential(f);
+          }
+          let final_ath = expo(ath_usd,2)
+          console.log(usd.bold()+final_ath)
+    }else{let final_ath= (    
+        (parseFloat(b).toFixed(3))) 
+        console.log(usd.bold()+final_ath)}
+
+            const bars = response2.data.map(el => ({
+                time: new Date(el.timeInterval.minute).getTime(), // date string in api response
+                low: el.low,
+                high: el.high,
+                open: Number(el.open),
+                close: Number(el.close),
+                volume: el.volume
+            }))
+
+            if (bars.length){
+                onHistoryCallback(bars, {noData: false});
+            }else{
+                onHistoryCallback(bars, {noData: true});
+            }
+const response = await axios.get('https://www.api.bscspotter.com/bnb_ohlc')
+var bnb_ohlc= response.data
+        } catch(err){
+            console.log({err})
+        }
+    },
+    
+})

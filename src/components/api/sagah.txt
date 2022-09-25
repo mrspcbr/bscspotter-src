@@ -1,0 +1,133 @@
+import axios from 'axios';
+import * as Bitquery from './../TVChartContainer/Bitquery';
+
+
+
+const configurationData = {
+    supported_resolutions: ['15','30', '60']
+};
+
+export default(baseCurrency) => ({
+    
+    onReady: (callback) => {
+        setTimeout(() => callback(configurationData));
+    },
+
+    resolveSymbol: async (symbolName, onSymbolResolvedCallback, onResolveErrorCallback) =>{
+var address = {baseCurrency, }
+
+      const response = await axios.get(
+        'https://www.api.bscspotter.com/info/'+baseCurrency)
+        
+        const coin = response.data
+          
+
+        
+
+        if(!coin){
+            onResolveErrorCallback();
+        }else{
+            const symbol = {
+                ticker: symbolName,
+                name: `${coin.symbol}/USD`,
+                session: '24x7',
+                timezone: 'Etc/UTC',
+                minmov: 1,
+                pricescale: 10000000,
+                has_intraday: true,
+                intraday_multipliers: ['1', '5', '15', '30', '60'],
+                has_empty_bars: true,
+                has_weekly_and_monthly: false,
+                supported_resolutions: configurationData.supported_resolutions,
+                volume_precision: 1,
+                data_status: 'streaming',
+            }
+            onSymbolResolvedCallback(symbol)
+        }console.log('got info')
+    }, 
+
+    getBars: async(symbolInfo, resolution, periodParams, onHistoryCallback, onErrorCallback) =>{
+       
+        try{
+            if (resolution==='1D') {
+                resolution = 1440;
+            }
+            const response2 = await axios.get(
+                'https://www.api.bscspotter.com/chart/'+baseCurrency)
+
+                var data = await response2.data
+                var results_max =[]
+                const uniqueIds = [];
+
+
+   
+           
+                let arr = [];
+                let arr2 = [];
+                    for (var i=0; i < data.length; i++) 
+                        
+                           
+                           arr.push(data[i].timeInterval.minute)
+                           
+                            var dates_split = JSON.stringify(arr)
+                            var dates_string= dates_split.split(",")
+                            var dates_string2=JSON.stringify(dates_string)
+                            var time_string_clean = dates_string2.replace(/["\"[\\\"\00Z\\"\""]+/g,'')
+                            var dates_split2 = time_string_clean.split(",")
+                            var time_date_xyz = time_string_clean.substring(0, 10)
+                            var unix = new Date(time_date_xyz).getTime() / 1000
+                            for(var i=0; i < dates_split2.length; i++) {
+                                dates_split2[i] = dates_split2[i].substring(0, 10);
+                               arr2.push((new Date(dates_split2[i]).getTime() / 1000))
+                               }
+                               let uniqueChars = [...new Set(arr2)];
+                              
+                           
+                           
+                            const bnb_ohlc_response= await axios.get('https://www.api.bscspotter.com/bnb_ohlc')
+                            var bnb_ohlc_data = bnb_ohlc_response.data
+                          
+                        
+                           
+                            console.log(bnb_ohlc_data)
+                            
+                            for (let i = 0; i < bnb_ohlc_data.length; i++) {
+                               
+                                var data_all = (bnb_ohlc_data[i]);
+                              
+                            
+                                   
+                            }
+                            var merged = [].concat.apply([], bnb_ohlc_data);
+                            var filteredArray = uniqueChars.filter(element  => bnb_ohlc_data.includes(element));
+                            console.log(data_all)
+                            console.log(uniqueChars)
+                
+                      
+
+            const bars = response2.data.map(el => ({
+                time: new Date(el.timeInterval.minute).getTime(), // date string in api response
+                low: el.low,
+                high: el.high,
+                open: Number(el.open),
+                close: Number(el.close),
+                volume: el.volume
+            }))
+
+            if (bars.length){
+                onHistoryCallback(bars, {noData: false});
+            }else{
+                onHistoryCallback(bars, {noData: true});
+            }
+const response = await axios.get('https://www.api.bscspotter.com/bnb_ohlc')
+var bnb_ohlc= response.data
+        } catch(err){
+            console.log({err})
+        }
+    },
+    
+})
+
+
+
+  

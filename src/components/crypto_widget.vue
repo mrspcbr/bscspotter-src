@@ -36,7 +36,7 @@
 
   <div class="column_widget_price" id="small_display_oneDiv">
     
-    <span>  <cryptoicon class="icon" symbol="bnb" size="10"></cryptoicon><span id="bnb_smallDis"></span></span> 
+    <span>  <cryptoicon class="icon" symbol="bnb" size="13"></cryptoicon><span id="bnb_smallDis"></span></span> 
   </div>
 
 
@@ -207,7 +207,7 @@ overflow: hidden;
     overflow: hidden;
     white-space: nowrap;
   margin: auto;
-  width: 50%;
+  width: 60%;
 
          border-radius: 45px;
          display: none;
@@ -219,6 +219,7 @@ overflow: hidden;
 
 }
 @media (max-width:450px){
+
   .column_widget_price{
     width: 100%;
     float: initial
@@ -247,7 +248,7 @@ overflow: hidden;
 }
 #bnb_smallDis{
   color: white;
-   font-size: clamp(8px, 0.95vw, 15px);
+   font-size: clamp(10px, 0.95vw, 15px);
 }
 
 </style>

@@ -244,7 +244,8 @@ h3{
     -moz-text-fill-color: transparent;
 }
 #form {
-  width: 40%;
+  width: 60%;
+  max-width: 900px;
   margin: auto;
   border: 1px solid rgb(219, 172, 4);
     padding: 40px 80px;

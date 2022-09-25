@@ -379,7 +379,12 @@ a {
        
 }
 @media (max-width: 750px){
- 
+ .table_name{
+  font-size: clamp(11px, 1vw, 14px) !important;
+ }
+ .table_element{
+  font-size: clamp(12px, 1vw, 15px) !important;
+ }
   #row_gainers_big{
     display: none !important;
   }

@@ -160,10 +160,13 @@ function openSearch(){
 
 		}
 
+
+
 #openNav{
 	display: initial !important;
 margin-right: 20px;
 color: white;
+font-size: 18px
 }
 
 
@@ -269,7 +272,7 @@ transform: translate(0%,4%);
 	#search_check_mobile{
 		cursor: pointer;
 		padding: 0;
-		font-size: 10px;
+		font-size: 15px;
 		display: none;
 	}
 	.circle-icon {

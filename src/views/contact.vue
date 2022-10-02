@@ -131,7 +131,23 @@
               alert('FAILED...', error.text);
           });
       }
-    }
+    },
+    metaInfo(){
+      return{
+       
+        title: `Contact Us | BSC Spotter`,
+        meta: [
+        {name: 'twitter:image', content: 'https://upcdn.io/kW15aw3WhQr9pTYxePdsemy'},
+{name: 'twitter:title', content: 'Contact Us | BSC Spotter'},
+{name: 'twitter:description', content: 'Contact us today for Advertising, Token listing, and more.'},
+{
+  name: 'description',
+  content: 'Contact us today for Advertising, Token listing, and more.'
+}
+        ]
+      }
+     },
+  
   }
   </script>
 

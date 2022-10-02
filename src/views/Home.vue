@@ -13,18 +13,27 @@
   
 
 
-
   <div class ='token_table_div'>
    
   <table class="token_table" id="table_home">
    <thead><tr class="HomePage" id="HomePage">
       
-     <th class="header_top"><span id ="reset_button"></span></th>
-      <th id = 'token_name'>Token</th>
-      <th >Price </th>
-      <th id = 'token_rating_sort'><b>Rating</b></th>
-      <th id = 'token_mcap_sort'><b>MCAP</b></th>
-      <th id = 'token_liq_sort'><b>Liquidity</b></th>
+     <th class="header_top" style=" min-width: 0px;"><span id ="reset_button"></span></th>
+      <th id = 'token_name' class="top">Token</th>
+      <th class="top">Price </th>
+    <th class='rating_column '  id=""><div id="background_color_rating" class="dropdown"><p><b id = 'token_rating_sort'>Rating</b><i class="fa fa-bars rating" id='rating_dropdown' aria-hidden="true">
+        
+      </i>  </p> <div id="dropdown_rating" class="dropdown-rating">
+          <p id="high_rated" class="rating_dropdown_button">High</p>
+          <p id="med_high_rated" class="rating_dropdown_button">Medium </p>
+          <p id="low_rated" class="rating_dropdown_button">Low</p>
+     
+     
+    </div></div>
+    
+</th>
+      <th id = 'token_mcap_sort' class="top"><b>MCAP</b></th>
+      <th id = 'token_liq_sort' class="top"><b>Liquidity</b></th>
    <th id="drop_down_th"><b><div class="dropdown" id="dropdown_color">
     <p  class="dropbtn" id="dropdown_test">Filter</p>
     <div id="myDropdown" class="dropdown-content">
@@ -45,9 +54,28 @@
    
    </table>
    <div id="pagination_buttons">
-    <span id="pagination_left">&laquo;</span>
-    <span class="pagination" id="pagination"></span>
-    <span id="pagination_right" >&raquo;</span></div>
+    <span  id="pagination_left2" class='pag2 pagination_others' style="display:none">&laquo;</span>
+    <span  id="pagination_left3" class="pag3 pagination_others" style="display:none">&laquo;</span>
+    <span  id="pagination_left4" class="pag4 pagination_others" style="display:none">&laquo;</span>
+    <span  id="pagination_left5" class="pag5 pagination_others" style="display:none">&laquo;</span>
+    <span  id="pagination_left6" class="pag6 pagination_others" style="display:none">&laquo;</span>
+    <span id="pagination_left" class="pagination_reset">&laquo;</span>
+    <span class="pagination pagination_reset" id="pagination"></span>
+    <span class="pagination pag2 pagination_others" id="pagination2"></span>
+    <span class="pagination pag3 pagination_others" id="pagination3"></span>
+    <span class="pagination pag4 pagination_others" id="pagination4"></span>
+    <span class="pagination pag5 pagination_others" id="pagination5"></span>
+    <span class="pagination pag6 pagination_others" id="pagination6"></span>
+    <span id="pagination_right" class="pagination_reset"  >&raquo;</span>
+    <span id="pagination_right2" class='pag2 pagination_others'  style="display:none">&raquo;</span>
+    <span id="pagination_right3" class="pag3 pagination_others" style="display:none">&raquo;</span>
+    <span id="pagination_right4" class="pag4 pagination_others" style="display:none">&raquo;</span>
+    <span id="pagination_right5" class="pag5 pagination_others" style="display:none">&raquo;</span>
+    <span id="pagination_right6" class="pag6 pagination_others" style="display:none">&raquo;</span>
+  
+  
+  
+  </div>
   </div>
     <table id="table_home_2"></table>
   </div>
@@ -82,6 +110,7 @@
         }
       },
     mounted(){
+      var count = 0
       this.isMounted = true
 
       async function create_table(){
@@ -89,7 +118,7 @@
   try {
       const listing_all = await axios.get('https://www.api.bscspotter.com/promoted_listing');
        var Array_data = listing_all.data;
-       const chunkSize = 50;
+       const chunkSize = 30;
        var arr_chunk=[]
 for (let i = 0; i < Array_data.length; i += chunkSize) {
    const chunk = Array_data.slice(i, i + chunkSize);
@@ -114,7 +143,7 @@ var pagination_buttons = document.getElementById('pagination');
        var row = `
         <tr data-v-fae5bece height="80px" class="Home_Page_${b}">
     
-                      <td data-v-fae5bece class="icon_0_big" id="icon_${data[i].token}">  </td>
+                      <td data-v-fae5bece class="icon_0_big"  style="text-align: center" id="icon_${data[i].token}">  </td>
      <td data-v-fae5bece class='header'>  <a id='link_${data[i].token}_name' href=""><p class='name' id="name_${data[i].token}">   &nbsp;</p></a> </td>
      <td data-v-fae5bece class='price' Id="price_${data[i].token}">  </td>
      <td data-v-fae5bece class="rating" id="rating_${data[i].token}" >  </td>
@@ -141,6 +170,7 @@ var pagination_buttons = document.getElementById('pagination');
  const logo_link_api = (listing_data.logo_link)
  var symbol = listing_data.symbol
  const token = listing_data.token
+
  document.getElementById('name_'+token).innerHTML=listing_name
  document.getElementById('link_'+token+ '_name').href="http://www.bscspotter.com/token/"+listing_symbol
  document.getElementById('icon_'+token).innerHTML='<img data-v-fae5bece src="'+logo_link_api+ '" class="listing_logo">'
@@ -157,7 +187,7 @@ var pagination_buttons = document.getElementById('pagination');
  
  var data_response = response.data;
   
-   
+
  var liquidity = data_response.liquidity
  var price=data_response.price
  var logo=data_response.logo
@@ -196,19 +226,26 @@ var pagination_buttons = document.getElementById('pagination');
  
  if (rating>80){
    progress_html.style=`color:#036b18`
+   progress_html.classList.add("highly_rated")
  }
  if(60<=rating && rating<=80){
     progress_html.style=`color:#d9bd0b`
+    progress_html.classList.add("med_high_rated")
  }
  if(40<=rating && rating<=60){
   progress_html.style=`color:#d99b0b`
+  progress_html.classList.add("med_rated")
  }
  if(20<=rating && rating<40){
   progress_html.style=`color:#d96b0b`
+  progress_html.classList.add("low_rated")
  }
  if(rating<=20){
     progress_html.style=`color:#c41212`
+    progress_html.classList.add("low_rated")
  }
+
+
  
  
 
@@ -226,24 +263,36 @@ var pagination_buttons = document.getElementById('pagination');
  
 
  }
- )
+ )  
+ const rating_dropdown=  document.getElementById('rating_dropdown')
+console.log(rating_dropdown)
+ rating_dropdown.addEventListener('click', function () {
+  document.getElementById("background_color_rating").style.backgroundColor = "#212122";
+ console.log( document.getElementById("background_color_rating"))
+  document.getElementById("dropdown_rating").style.display="block";
  
+
+
+
+
+})
  
  // Close the dropdown menu if the user clicks outside of it
  window.onclick = function(event) {
+  if (!event.target.matches('.rating')) {
+     
+    document.getElementById("dropdown_rating").style.display="none";
+    document.getElementById("background_color_rating").style.backgroundColor = "";
+    
+    
+   }
    if (!event.target.matches('.dropbtn')) {
+  
      var dropdowns = document.getElementsByClassName("dropdown-content");
       document.getElementById("dropdown_color").style.backgroundColor = "";
       document.getElementById("myDropdown").style.display="none";
-     var i;
-     for (i = 0; i < dropdowns.length; i++) {
-       var openDropdown = dropdowns[i];
-       
-      {
-       document.getElementById("myDropdown").style.display="none";
-          document.getElementById("dropdown_color").style.backgroundColor = "";
-       }
-     }
+    
+ 
    }
  }
  
@@ -545,115 +594,6 @@ var pagination_buttons = document.getElementById('pagination');
  
  
  
- var input_test = document.getElementById("verified_drop");
- input_test.addEventListener("click", function (){
-   const pagination_button = document.getElementById("pagination_buttons")
-   pagination_button.style.display="none"
-  {document.getElementById("reset_button").innerHTML="<button class='button' id='Reset' style='cursor: pointer;  background-color: #1b1829;   border-radius:20px; color: #adf ; border-color: ; -webkit-text-fill-color: initial; padding: 3px'>Reset</button>"
-    document.getElementById("reset_button").style.display="block"
-
-   var input, filter, table, tr, td, i, txtValue;
-   input = document.getElementById("myInput");
-   filter = "fa fa-id-card"
-   table = document.getElementById("table_home");
-   tr = table.getElementsByTagName("tr");
-   for (i = 0; i < tr.length; i++) {
-     td = tr[i].getElementsByTagName("td")[6];
-   
-     if (td) {
-       txtValue =  td.innerHTML;
-   
-       if (txtValue.indexOf(filter) > -1) {
-         tr[i].style.display = "";
-       } else {
-         tr[i].style.display = "none";
-       }
-     }       
-   }
- }
- })
- 
- var input_doxxed = document.getElementById("doxxed_drop");
- input_doxxed.addEventListener("click", function (){
-   const pagination_button = document.getElementById("pagination_buttons")
-   pagination_button.style.display="none"
-
-  { document.getElementById("reset_button").innerHTML="<button class='button' id='Reset' style='cursor: pointer;  background-color: #1b1829;   border-radius:20px; color: #adf ; border-color: ; -webkit-text-fill-color: initial; padding: 3px'>Reset</button>"
-   
-   document.getElementById("reset_button").style.display="block"
-
-   var input, filter, table, tr, td, i, txtValue;
-   input = document.getElementById("myInput");
-   filter = "fa fa-users"
-   table = document.getElementById("table_home");
-   tr = table.getElementsByTagName("tr");
-   for (i = 0; i < tr.length; i++) {
-     td = tr[i].getElementsByTagName("td")[6];
-   
-     if (td) {
-       txtValue =  td.innerHTML;
-   
-       if (txtValue.indexOf(filter) > -1) {
-         tr[i].style.display = "";
-         tr[i].classList.add("filteredList")
-       } else {
-         tr[i].style.display = "none";
-       }
-     }       
-   }
-
- }
-
- })
- 
- var reset_button = document.getElementById("reset_button");
- reset_button.addEventListener("click", function (){
-  {
-  const pagination_function= document.querySelectorAll('.pagination_function');
-   
-  const pagination_button = document.getElementById("pagination_buttons")
-   pagination_button.style.display=""
-   
-   pagination_function.forEach(pagination_function => {
-     
-  const table_rows= document.querySelectorAll('.Home_Page_'+pagination_function.innerHTML-1);
-
-
-const rows = document.getElementsByTagName("tr");
-const table = document.getElementById("table_home");
-const tr = table.getElementsByTagName("tr");
-
-
-  pagination_function.setAttribute('id', 'pagination_function_active');
-  tr.forEach(Home_Page => {
-    if (Home_Page.classList.contains('Home_Page_0')) {
-      Home_Page.style.display = 'table-row';
-      tr[0].style.display='table-row';
-      const pagnigation = document.getElementById('pagination')
-const pagnigation_a = pagnigation.getElementsByTagName('a')
-
-
-pagnigation_a[0].id= 'active'
-
-    } 
-    else{
-      Home_Page.style.display = 'none';  tr[0].style.display='table-row';
-    }
-
-    
-
-  });
-
-  
-
-
-
-})
- }
- reset_button.style.display="none";
- 
- })
- 
  
  
  }
@@ -844,20 +784,1538 @@ tr.forEach(Home_Page => {
 
 })
 
+function move_left (classlist, active, pagination){
+const pagnigation = pagination
+const pagnigation_a = pagnigation.getElementsByTagName('a')
+
+
+const table = document.getElementById("table_home");
+const tr = table.getElementsByTagName("tr");
+const pagination_current = document.getElementById(`${active}`)
+console.log(pagination_current)
+
+const pagination_number = pagination_current.innerHTML
+
+if (pagnigation_a.length != pagination_number){
+
+ const pagination_next = pagination_current.nextElementSibling
+
+pagination_current.setAttribute('id', 'not_active4')
+pagination_next.setAttribute('id', `${active}`)
+
+
+tr.forEach(Home_Page => {
+     if (Home_Page.classList.contains(`${classlist}`+(pagination_number))) {
+       Home_Page.style.display = 'table-row';
+       tr[0].style.display='table-row';
+    
+     var arr_home_page = []
+     arr_home_page.push(Home_Page)
+  
+   
+     } 
+     else{
+       Home_Page.style.display = 'none';  tr[0].style.display='table-row';
+     
+     }
+
+     
+
+   });}
+}
+
+
+var pagination_right4 = document.getElementById('pagination_right4');
+pagination_right4.addEventListener('click', function handleClicks(event) {
+  const pagnigation = document.getElementById('pagination4')
+const active = 'active4'
+const classlist = 'filtered_high_rated_'
+  move_left (classlist, active, pagnigation )
+
+
+})
+var pagination_right6 = document.getElementById('pagination_right6');
+pagination_right6.addEventListener('click', function handleClicks(event) {
+  const pagnigation = document.getElementById('pagination6')
+const active = 'active6'
+const classlist = 'filteredList_low_rated_'
+move_left (classlist, active, pagnigation )
+
+})
+var pagination_right5 = document.getElementById('pagination_right5');
+pagination_right5.addEventListener('click', function handleClicks(event) {
+  const pagnigation = document.getElementById('pagination5')
+const active = 'active5'
+const classlist = 'filteredList_med_rated_'
+move_left (classlist, active, pagnigation )
+
+})
+var filter_rating_high = document.getElementById('high_rated');
+filter_rating_high.addEventListener('click', function(){
+  document.getElementById('pagination5').innerHTML = '';
+document.getElementById('pagination6').innerHTML = '';
+document.getElementById('pagination4').innerHTML = '';
+document.getElementById('pagination3').innerHTML = '';
+document.getElementById('pagination2').innerHTML = '';
+var pag1 = document.querySelectorAll('.pagination_reset')
+pag1.forEach(pag1 => {
+  pag1.style.display='none';
+})
+  var pag2 = document.querySelectorAll('.pag2')
+  pag2.forEach(pag2 => {
+    pag2.style.display='none';})
+    var pag3 = document.querySelectorAll('.pag3')
+  pag3.forEach(pag2 => {
+    pag2.style.display='none';})
+    var pag4 = document.querySelectorAll('.pag4')
+  pag4.forEach(pag2 => {
+    pag2.style.display='';})
+    var pag5 = document.querySelectorAll('.pag5')
+  pag5.forEach(pag2 => {
+    pag2.style.display='none';})
+    var pag6 = document.querySelectorAll('.pag6')
+  pag6.forEach(pag2 => {
+    pag2.style.display='none';})
+  
+   const pagination_button = document.getElementById("pagination")
+   pagination_button.style.display="none"
+
+   
+  {document.getElementById("reset_button").innerHTML="<button class='button' id='Reset' style='cursor: pointer;  background-color: #1b1829; font-size: clamp(10px, 3vw, 13px);  border-radius:20px; color: #adf ; border-color: ; -webkit-text-fill-color: initial; padding: 3px'>Reset</button>"
+    document.getElementById("reset_button").style.display="block"
+
+   var input, filter, table, tr, td, i, txtValue;
+   input = document.getElementById("myInput");
+   filter = "highly_rated"
+   table = document.getElementById("table_home");
+   tr = table.getElementsByTagName("tr");
+
+document.getElementById('pagination4').style.display=''
+   var chunkSize = 30;
+   var Array_data= []
+       var arr_chunk=[]
+   
+
+
+   for (i = 0; i < tr.length; i++) {
+   
+  
+     td = tr[i].getElementsByTagName("td")[3];
+     if (tr[i].classList.contains("filteredList_doxxed")){
+  tr[i].classList.remove("filteredList_doxxed")
+
+
+}
+if (tr[i].classList.contains("filteredList_kyc")){
+  tr[i].classList.remove("filteredList_kyc")
+
+
+}
+     if (td) {
+       txtValue =  td.classList[1];
+   
+       if (txtValue.indexOf(filter) > -1) {
+         tr[i].style.display = "";
+        
+         tr[i].classList.add("filteredList_highly_rated")
+         
+       } else {
+         tr[i].style.display = "none";
+       }
+     }       
+   }
+ }
+ for (let j = 0; j < tr.length; j++) {
+      if (tr[j].classList.contains('filteredList_highly_rated')){
+      
+        Array_data.push(tr[j])
+        console.log(Array_data)
+      }
+    }
+       
+      
+for (let i = 0; i < Array_data.length; i += chunkSize) {
+ 
+   const chunk = Array_data.slice(i, i + chunkSize);
+   console.log(Array_data)
+ 
+   arr_chunk.push(chunk)
+   console.log(arr_chunk)
+}
+for ( let i = 0; i < arr_chunk.length; i++){
+  arr_chunk[i].forEach(arr_chunk => {
+    arr_chunk.classList.add('filtered_high_rated_'+i)
+  })
+}
+for (var b = 0; b < arr_chunk.length; b++){
+var pagination_buttons = document.getElementById('pagination4');
+ var pagination = `
+ <a  data-v-fae5bece class="pagination_function_filtered_top_rating filtered_rating_high_${b}" href="#">${b+1}</a>
+ `
+ pagination_buttons.innerHTML += pagination;}
+
+ const pagination_function= document.querySelectorAll('.pagination_function_filtered_top_rating');
+
+   
+   pagination_function.forEach(pagination_function => {
+
+
+  const table_rows= document.querySelectorAll('.Home_Page_'+pagination_function.innerHTML-1);
+
+
+const rows = document.getElementsByTagName("tr");
+const table = document.getElementById("table_home");
+const tr = table.getElementsByTagName("tr");
+
+
+  pagination_function.setAttribute('id', '');
+  tr.forEach(Home_Page => {
+    if (Home_Page.classList.contains('filtered_high_rated_0')) {
+      Home_Page.style.display = 'table-row';
+      tr[0].style.display='table-row';
+      const pagnigation = document.getElementById('pagination4')
+const pagnigation_a = pagnigation.getElementsByClassName('pagination_function_filtered_top_rating')
+console.log(pagnigation_a)
+
+pagnigation_a[0].id= 'active4'
+
+    } 
+    else{
+      Home_Page.style.display = 'none';  tr[0].style.display='table-row';
+    }
+
+    
+
+  });
+
+  
+
+
+
+}
+
+
+);
+
+   
+pagination_function.forEach(pagination_function => {
+
+ pagination_function.addEventListener('click', function handleClick(event) {
+ 
+   const table_rows= document.querySelectorAll('.Home_Page_'+(pagination_function.innerHTML-1));
+
+
+  
+const rows = document.getElementsByTagName("tr");
+const table = document.getElementById("table_home");
+const tr = table.getElementsByTagName("tr");
+const pagnigation = document.getElementById('pagination4')
+const pagnigation_a = pagnigation.getElementsByTagName('a')
+
+
+
+pagnigation_a.forEach (pagnigation_a => {
+pagnigation_a.id= ''
+})
+   pagination_function.setAttribute('id', 'active4');
+
+   tr.forEach(Home_Page => {
+    console.log(Home_Page)
+    console.log(pagination_function.innerHTML-1)
+     if (Home_Page.classList.contains('filtered_high_rated_'+(pagination_function.innerHTML-1))) {
+       Home_Page.style.display = 'table-row';
+       tr[0].style.display='table-row';
+
+  
+   
+     } 
+     else{
+       Home_Page.style.display = 'none';  tr[0].style.display='table-row';
+     
+     }
+
+     
+
+   });
+
+   
+
+ });
+
+}
+
+
+);
+
+
+
+var pagination_right4 = document.getElementById('pagination_right4');
+var pagination_left4 = document.getElementById('pagination_left4');
+var pagnigation = document.getElementById('pagination4')
+var pagnigation_a = pagnigation.getElementsByTagName('a')
+
+
+
+pagnigation_a.forEach (pagnigation_a => {
+  pagination_left4.addEventListener('click', function handleClick(event) {
+
+console.log('clicked')
+if (pagnigation_a.id== 'active4' && pagnigation_a.innerHTML-1 > 0) {
+console.log('clicked and active found')
+const table = document.getElementById("table_home");
+const tr = table.getElementsByTagName("tr");
+tr.forEach(Home_Page => {
+
+ pagination_function.forEach(pagination_function => {
+
+    if (Home_Page.classList.contains('filtered_high_rated_'+(pagnigation_a.innerHTML-2))) {
+ 
+      Home_Page.style.display = 'table-row';
+      tr[0].style.display='table-row';
+      pagnigation_a.id= ''
+       pagnigation_a.previousElementSibling.id= 'active4'
+ 
+    } 
+    
+    else{
+      Home_Page.style.display = 'none';  tr[0].style.display='table-row';
+    
+    }})})
+
+
+}
+})
+
+
+})
+
+})
+ 
+
+
+
+var filtered_low_rated = document.getElementById('low_rated');
+ filtered_low_rated.addEventListener('click', function(){
+  document.getElementById('pagination5').innerHTML = '';
+document.getElementById('pagination6').innerHTML = '';
+document.getElementById('pagination4').innerHTML = '';
+document.getElementById('pagination3').innerHTML = '';
+document.getElementById('pagination2').innerHTML = '';
+
+  document.getElementById('pagination6').innerHTML='';
+  document.getElementById('pagination6').style.display='';
+
+  document.getElementById("pagination_left6").style.display='';
+  document.getElementById("pagination_right6").style.display='';
+var pag1 = document.querySelectorAll('.pagination_reset')
+pag1.forEach(pag1 => {
+  pag1.style.display='none';
+})
+  var pag2 = document.querySelectorAll('.pag2')
+  pag2.forEach(pag2 => {
+    pag2.style.display='none';})
+    var pag3 = document.querySelectorAll('.pag3')
+  pag3.forEach(pag2 => {
+    pag2.style.display='none';})
+    var pag4 = document.querySelectorAll('.pag4')
+  pag4.forEach(pag2 => {
+    pag2.style.display='none';})
+    var pag5 = document.querySelectorAll('.pag5')
+  pag5.forEach(pag2 => {
+    pag2.style.display='none';})
+    var pag6 = document.querySelectorAll('.pag6')
+  pag6.forEach(pag2 => {
+    pag2.style.display='';})
+
+   const pagination_button = document.getElementById("pagination")
+   pagination_button.style.display="none"
+
+   
+  {document.getElementById("reset_button").innerHTML="<button class='button' id='Reset' style='cursor: pointer; font-size: clamp(10px, 3vw, 13px);  background-color: #1b1829;   border-radius:20px; color: #adf ; border-color: ; -webkit-text-fill-color: initial; padding: 3px'>Reset</button>"
+    document.getElementById("reset_button").style.display="block"
+
+   var input, filter, table, tr, td, i, txtValue;
+   input = document.getElementById("myInput");
+   filter = "low_rated"
+   table = document.getElementById("table_home");
+   tr = table.getElementsByTagName("tr");
+
+document.getElementById('pagination5').style.display=''
+   var chunkSize = 30;
+   var Array_data= []
+       var arr_chunk=[]
+   
+
+
+   for (i = 0; i < tr.length; i++) {
+   
+  
+     td = tr[i].getElementsByTagName("td")[3];
+     if (tr[i].classList.contains("filteredList_doxxed")){
+  tr[i].classList.remove("filteredList_doxxed")
+
+
+}
+if (tr[i].classList.contains("filteredList_kyc")){
+  tr[i].classList.remove("filteredList_kyc")
+
+
+}
+if (tr[i].classList.contains("medium_rated")){
+  tr[i].classList.remove("medium_rated")
+
+
+}
+if (tr[i].classList.contains("highly_rated")){
+  tr[i].classList.remove("highly_rated")
+
+
+}
+
+     if (td) {
+       txtValue =  td.classList[1];
+   
+       if (txtValue.indexOf(filter) > -1) {
+         tr[i].style.display = "";
+        
+         tr[i].classList.add("filteredList_low_rated")
+         
+       } else {
+         tr[i].style.display = "none";
+       }
+     }       
+   }
+ }
+ for (let j = 0; j < tr.length; j++) {
+      if (tr[j].classList.contains('filteredList_low_rated')){
+      
+        Array_data.push(tr[j])
+        console.log(Array_data)
+      }
+    }
+       
+      
+for (let i = 0; i < Array_data.length; i += chunkSize) {
+ 
+   const chunk = Array_data.slice(i, i + chunkSize);
+   console.log(Array_data)
+ 
+   arr_chunk.push(chunk)
+   console.log(arr_chunk)
+}
+for ( let i = 0; i < arr_chunk.length; i++){
+  arr_chunk[i].forEach(arr_chunk => {
+    arr_chunk.classList.add('filteredList_low_rated_'+i)
+  })
+}
+for (var b = 0; b < arr_chunk.length; b++){
+var pagination_buttons = document.getElementById('pagination6');
+ var pagination = `
+ <a  data-v-fae5bece class="pagination_function_filtered_low_rating filtered_low_rated${b}" href="#">${b+1}</a>
+ `
+ pagination_buttons.innerHTML += pagination;}
+
+ const pagination_function= document.querySelectorAll('.pagination_function_filtered_low_rating');
+
+   
+   pagination_function.forEach(pagination_function => {
+
+
+ 
+
+
+const rows = document.getElementsByTagName("tr");
+const table = document.getElementById("table_home");
+const tr = table.getElementsByTagName("tr");
+
+
+  pagination_function.setAttribute('id', '');
+  tr.forEach(Home_Page => {
+    if (Home_Page.classList.contains('filteredList_low_rated_0')) {
+      Home_Page.style.display = 'table-row';
+      tr[0].style.display='table-row';
+      const pagnigation = document.getElementById('pagination6')
+const pagnigation_a = pagnigation.getElementsByClassName('pagination_function_filtered_low_rating')
+
+console.log(pagnigation_a)
+pagnigation_a[0].id= 'active6'
+
+    } 
+    else{
+      Home_Page.style.display = 'none';  tr[0].style.display='table-row';
+    }
+
+    
+
+  });
+
+  
+
+
+
+}
+
+
+);
+
+   
+pagination_function.forEach(pagination_function => {
+
+ pagination_function.addEventListener('click', function handleClick(event) {
+ 
+  
+
+
+  
+const rows = document.getElementsByTagName("tr");
+const table = document.getElementById("table_home");
+const tr = table.getElementsByTagName("tr");
+const pagnigation = document.getElementById('pagination6')
+const pagnigation_a = pagnigation.getElementsByTagName('a')
+
+
+
+pagnigation_a.forEach (pagnigation_a => {
+pagnigation_a.id= ''
+})
+   pagination_function.setAttribute('id', 'active6');
+
+   tr.forEach(Home_Page => {
+    console.log(Home_Page)
+    console.log(pagination_function.innerHTML-1)
+     if (Home_Page.classList.contains('filteredList_low_rated_'+(pagination_function.innerHTML-1))) {
+       Home_Page.style.display = 'table-row';
+       tr[0].style.display='table-row';
+
+  
+   
+     } 
+     else{
+       Home_Page.style.display = 'none';  tr[0].style.display='table-row';
+     
+     }
+
+     
+
+   });
+
+   
+
+ });
+
+}
+
+
+);
+
+
+
+var pagination_right4 = document.getElementById('pagination_right4');
+
+var pagination_left6 = document.getElementById('pagination_left6');
+var pagnigation = document.getElementById('pagination6')
+var pagnigation_a = pagnigation.getElementsByTagName('a')
+
+
+
+pagnigation_a.forEach (pagnigation_a => {
+  pagination_left6.addEventListener('click', function handleClick(event) {
+
+console.log('clicked')
+if (pagnigation_a.id== 'active6' && pagnigation_a.innerHTML-1 > 0) {
+
+const table = document.getElementById("table_home");
+const tr = table.getElementsByTagName("tr");
+tr.forEach(Home_Page => {
+
+ pagination_function.forEach(pagination_function => {
+
+    if (Home_Page.classList.contains('filteredList_low_rated_'+(pagnigation_a.innerHTML-2))) {
+ 
+      Home_Page.style.display = 'table-row';
+      tr[0].style.display='table-row';
+      pagnigation_a.id= ''
+       pagnigation_a.previousElementSibling.id= 'active6'
+ 
+    } 
+    
+    else{
+      Home_Page.style.display = 'none';  tr[0].style.display='table-row';
+    
+    }})})
+
+
+}
+})
+
+
+})
+
+})
+
+var filtered_rating_med = document.getElementById('med_high_rated');
+filtered_rating_med.addEventListener('click', function(){
+
+document.getElementById('pagination5').innerHTML = '';
+document.getElementById('pagination6').innerHTML = '';
+document.getElementById('pagination4').innerHTML = '';
+document.getElementById('pagination3').innerHTML = '';
+document.getElementById('pagination2').innerHTML = '';
+
+
+  var pag1 = document.querySelectorAll('.pagination_reset')
+pag1.forEach(pag1 => {
+  pag1.style.display='none';
+})
+  var pag2 = document.querySelectorAll('.pag2')
+  pag2.forEach(pag2 => {
+    pag2.style.display='none';})
+    var pag3 = document.querySelectorAll('.pag3')
+  pag3.forEach(pag2 => {
+    pag2.style.display='none';})
+    var pag4 = document.querySelectorAll('.pag4')
+    console.log(pag4)
+  pag4.forEach(pag2 => {
+    pag2.style.display='none';})
+    var pag5 = document.querySelectorAll('.pag5')
+  pag5.forEach(pag2 => {
+    pag2.style.display='';})
+    var pag6 = document.querySelectorAll('.pag6')
+  pag6.forEach(pag2 => {
+    pag2.style.display='none';})
+   const pagination_button = document.getElementById("pagination")
+   pagination_button.style.display="none"
+
+   
+  {document.getElementById("reset_button").innerHTML="<button class='button' id='Reset' style='cursor: pointer; font-size: clamp(10px, 3vw, 13px);  background-color: #1b1829;   border-radius:20px; color: #adf ; border-color: ; -webkit-text-fill-color: initial; padding: 3px'>Reset</button>"
+    document.getElementById("reset_button").style.display="block"
+
+   var input, filter, table, tr, td, i, txtValue;
+   input = document.getElementById("myInput");
+   filter = "med_high_rated"
+   table = document.getElementById("table_home");
+   tr = table.getElementsByTagName("tr");
+
+document.getElementById('pagination5').style.display=''
+   var chunkSize = 30;
+   var Array_data= []
+       var arr_chunk=[]
+   
+
+
+   for (i = 0; i < tr.length; i++) {
+   
+  
+     td = tr[i].getElementsByTagName("td")[3];
+     if (tr[i].classList.contains("filteredList_doxxed")){
+  tr[i].classList.remove("filteredList_doxxed")
+
+
+}
+if (tr[i].classList.contains("filteredList_kyc")){
+  tr[i].classList.remove("filteredList_kyc")
+
+
+}
+if (tr[i].classList.contains("medium_rated")){
+  tr[i].classList.remove("medium_rated")
+
+
+}
+     if (td) {
+       txtValue =  td.classList[1];
+   
+       if (txtValue.indexOf(filter) > -1) {
+         tr[i].style.display = "";
+        
+         tr[i].classList.add("filteredList_med_rated")
+         
+       } else {
+         tr[i].style.display = "none";
+       }
+     }       
+   }
+ }
+ for (let j = 0; j < tr.length; j++) {
+      if (tr[j].classList.contains('filteredList_med_rated')){
+      
+        Array_data.push(tr[j])
+        console.log(Array_data)
+      }
+    }
+       
+      
+for (let i = 0; i < Array_data.length; i += chunkSize) {
+ 
+   const chunk = Array_data.slice(i, i + chunkSize);
+   console.log(Array_data)
+ 
+   arr_chunk.push(chunk)
+   console.log(arr_chunk)
+}
+for ( let i = 0; i < arr_chunk.length; i++){
+  arr_chunk[i].forEach(arr_chunk => {
+    arr_chunk.classList.add('filteredList_med_rated_'+i)
+  })
+}
+for (var b = 0; b < arr_chunk.length; b++){
+var pagination_buttons = document.getElementById('pagination5');
+ var pagination = `
+ <a  data-v-fae5bece class="pagination_function_filtered_med_rating filtered_med_rated${b}" href="#">${b+1}</a>
+ `
+ pagination_buttons.innerHTML += pagination;}
+
+ const pagination_function= document.querySelectorAll('.pagination_function_filtered_med_rating');
+
+   
+   pagination_function.forEach(pagination_function => {
+
+
+ 
+
+
+const rows = document.getElementsByTagName("tr");
+const table = document.getElementById("table_home");
+const tr = table.getElementsByTagName("tr");
+
+
+  pagination_function.setAttribute('id', '');
+  tr.forEach(Home_Page => {
+    if (Home_Page.classList.contains('filteredList_med_rated_0')) {
+      Home_Page.style.display = 'table-row';
+      tr[0].style.display='table-row';
+      const pagnigation = document.getElementById('pagination5')
+const pagnigation_a = pagnigation.getElementsByClassName('pagination_function_filtered_med_rating')
+
+
+pagnigation_a[0].id= 'active5'
+
+    } 
+    else{
+      Home_Page.style.display = 'none';  tr[0].style.display='table-row';
+    }
+
+    
+
+  });
+
+  
+
+
+
+}
+
+
+);
+
+   
+pagination_function.forEach(pagination_function => {
+
+ pagination_function.addEventListener('click', function handleClick(event) {
+ 
+  
+
+
+  
+const rows = document.getElementsByTagName("tr");
+const table = document.getElementById("table_home");
+const tr = table.getElementsByTagName("tr");
+const pagnigation = document.getElementById('pagination5')
+const pagnigation_a = pagnigation.getElementsByTagName('a')
+
+
+
+pagnigation_a.forEach (pagnigation_a => {
+pagnigation_a.id= ''
+})
+   pagination_function.setAttribute('id', 'active5');
+
+   tr.forEach(Home_Page => {
+    console.log(Home_Page)
+    console.log(pagination_function.innerHTML-1)
+     if (Home_Page.classList.contains('filteredList_med_rated_'+(pagination_function.innerHTML-1))) {
+       Home_Page.style.display = 'table-row';
+       tr[0].style.display='table-row';
+
+  
+   
+     } 
+     else{
+       Home_Page.style.display = 'none';  tr[0].style.display='table-row';
+     
+     }
+
+     
+
+   });
+
+   
+
+ });
+
+}
+
+
+);
+
+
+
+var pagination_right4 = document.getElementById('pagination_right4');
+
+var pagination_left5 = document.getElementById('pagination_left5');
+var pagnigation = document.getElementById('pagination5')
+var pagnigation_a = pagnigation.getElementsByTagName('a')
+
+
+
+pagnigation_a.forEach (pagnigation_a => {
+  pagination_left5.addEventListener('click', function handleClick(event) {
+
+console.log('clicked')
+if (pagnigation_a.id== 'active5' && pagnigation_a.innerHTML-1 > 0) {
+
+const table = document.getElementById("table_home");
+const tr = table.getElementsByTagName("tr");
+tr.forEach(Home_Page => {
+
+ pagination_function.forEach(pagination_function => {
+
+    if (Home_Page.classList.contains('filteredList_med_rated_'+(pagnigation_a.innerHTML-2))) {
+ 
+      Home_Page.style.display = 'table-row';
+      tr[0].style.display='table-row';
+      pagnigation_a.id= ''
+       pagnigation_a.previousElementSibling.id= 'active5'
+ 
+    } 
+    
+    else{
+      Home_Page.style.display = 'none';  tr[0].style.display='table-row';
+    
+    }})})
+
+
+}
+})
+
+
+})
+
+})
+var input_test = document.getElementById("verified_drop");
+ input_test.addEventListener("click", function (){
+  document.querySelectorAll('.pagination_others').forEach(e => e.style.display = 'none');
+
+  document.getElementById("pagination2").innerHTML='';
+  document.getElementById("pagination_right").style.display='none';
+  document.getElementById("pagination_left").style.display='none';
+  document.getElementById("pagination_right2").style.display='';
+  document.getElementById("pagination_left2").style.display='';
+  document.getElementById("pagination_right3").style.display='none';
+  document.getElementById("pagination_left3").style.display='none';
+  document.getElementById("pagination3").innerHTML='';
+   const pagination_button = document.getElementById("pagination")
+   pagination_button.style.display="none"
+
+
+  {document.getElementById("reset_button").innerHTML="<button class='button' id='Reset' style='cursor: pointer; font-size: clamp(10px, 3vw, 13px);  background-color: #1b1829;   border-radius:20px; color: #adf ; border-color: ; -webkit-text-fill-color: initial; padding: 3px'>Reset</button>"
+    document.getElementById("reset_button").style.display="block"
+
+   var input, filter, table, tr, td, i, txtValue;
+   input = document.getElementById("myInput");
+   filter = "fa fa-id-card"
+   table = document.getElementById("table_home");
+   tr = table.getElementsByTagName("tr");
+
+document.getElementById('pagination2').style.display=''
+   var chunkSize = 30;
+   var Array_data= []
+       var arr_chunk=[]
+   
+
+
+   for (i = 0; i < tr.length; i++) {
+   
+  
+     td = tr[i].getElementsByTagName("td")[6];
+     if (tr[i].classList.contains("filteredList_doxxed")){
+  tr[i].classList.remove("filteredList_doxxed")
+
+
+}
+
+     if (td) {
+       txtValue =  td.innerHTML;
+   
+       if (txtValue.indexOf(filter) > -1) {
+         tr[i].style.display = "";
+        
+         tr[i].classList.add("filteredList_kyc")
+         
+       } else {
+         tr[i].style.display = "none";
+       }
+
+     }       
+   }
+ }
+ for (let j = 0; j < tr.length; j++) {
+      if (tr[j].classList.contains('filteredList_kyc')){
+      
+        Array_data.push(tr[j])
+        console.log(Array_data)
+      }
+    }
+       
+      
+for (let i = 0; i < Array_data.length; i += chunkSize) {
+ 
+   const chunk = Array_data.slice(i, i + chunkSize);
+   console.log(Array_data)
+ 
+   arr_chunk.push(chunk)
+   console.log(arr_chunk)
+}
+for ( let i = 0; i < arr_chunk.length; i++){
+  arr_chunk[i].forEach(arr_chunk => {
+    arr_chunk.classList.add('filtered_kyc_'+i)
+  })
+}
+for (var b = 0; b < arr_chunk.length; b++){
+var pagination_buttons = document.getElementById('pagination2');
+ var pagination = `
+ <a  data-v-fae5bece class="pagination_function_filtered filtered_${b}" href="#">${b+1}</a>
+ `
+ pagination_buttons.innerHTML += pagination;}
+
+ const pagination_function= document.querySelectorAll('.pagination_function_filtered');
+
+   
+   pagination_function.forEach(pagination_function => {
+
+
+  const table_rows= document.querySelectorAll('.Home_Page_'+pagination_function.innerHTML-1);
+
+
+const rows = document.getElementsByTagName("tr");
+const table = document.getElementById("table_home");
+const tr = table.getElementsByTagName("tr");
+
+
+  pagination_function.setAttribute('id', '');
+  tr.forEach(Home_Page => {
+    if (Home_Page.classList.contains('filtered_kyc_0')) {
+      Home_Page.style.display = 'table-row';
+      tr[0].style.display='table-row';
+      const pagnigation = document.getElementById('pagination2')
+const pagnigation_a = pagnigation.getElementsByClassName('pagination_function_filtered')
+console.log(pagnigation_a)
+
+pagnigation_a[0].id= 'active2'
+
+    } 
+    else{
+      Home_Page.style.display = 'none';  tr[0].style.display='table-row';
+    }
+
+    
+
+  });
+
+  
+
+
+
+}
+
+
+);
+
+   
+pagination_function.forEach(pagination_function => {
+
+ pagination_function.addEventListener('click', function handleClick(event) {
+ 
+   const table_rows= document.querySelectorAll('.Home_Page_'+(pagination_function.innerHTML-1));
+
+
+  
+const rows = document.getElementsByTagName("tr");
+const table = document.getElementById("table_home");
+const tr = table.getElementsByTagName("tr");
+const pagnigation = document.getElementById('pagination2')
+const pagnigation_a = pagnigation.getElementsByTagName('a')
+
+
+
+pagnigation_a.forEach (pagnigation_a => {
+pagnigation_a.id= ''
+})
+   pagination_function.setAttribute('id', 'active2');
+
+   tr.forEach(Home_Page => {
+     if (Home_Page.classList.contains('filtered_kyc_'+(pagination_function.innerHTML-1))) {
+       Home_Page.style.display = 'table-row';
+       tr[0].style.display='table-row';
+
+  
+   
+     } 
+     else{
+       Home_Page.style.display = 'none';  tr[0].style.display='table-row';
+     
+     }
+
+     
+
+   });
+
+   
+
+ });
+
+}
+
+
+);
+
+
+
+var pagination_right2 = document.getElementById('pagination_right2');
+var pagination_left2 = document.getElementById('pagination_left2');
+var pagnigation = document.getElementById('pagination2')
+var pagnigation_a = pagnigation.getElementsByTagName('a')
+
+
+
+pagnigation_a.forEach (pagnigation_a => {
+  pagination_left2.addEventListener('click', function handleClick(event) {
+
+console.log('clicked')
+if (pagnigation_a.id== 'active2' && pagnigation_a.innerHTML-1 > 0) {
+console.log('clicked and active found')
+const table = document.getElementById("table_home");
+const tr = table.getElementsByTagName("tr");
+tr.forEach(Home_Page => {
+
+ pagination_function.forEach(pagination_function => {
+
+    if (Home_Page.classList.contains('filtered_kyc_'+(pagnigation_a.innerHTML-2))) {
+ 
+      Home_Page.style.display = 'table-row';
+      tr[0].style.display='table-row';
+      pagnigation_a.id= ''
+       pagnigation_a.previousElementSibling.id= 'active2'
+ 
+    } 
+    
+    else{
+      Home_Page.style.display = 'none';  tr[0].style.display='table-row';
+    
+    }})})
+
+
+}
+})
+
+
+})
+
+ })
+ 
+ var input_doxxed = document.getElementById("doxxed_drop");
+ input_doxxed.addEventListener("click", function (){
+
+  document.querySelectorAll('.pagination_others').forEach(e => e.style.display = 'none');
+
+
+
+
+
+  document.getElementById("pagination2").innerHTML='';
+  document.getElementById("pagination_right").style.display='none';
+  document.getElementById("pagination_left").style.display='none';
+  document.getElementById("pagination_right2").style.display='none';
+  document.getElementById("pagination_left2").style.display='none';
+
+  document.getElementById("pagination3").innerHTML='';
+  document.getElementById("pagination_right3").style.display='';
+  document.getElementById("pagination_left3").style.display='';
+
+   const pagination_button = document.getElementById("pagination")
+   pagination_button.style.display="none"
+  {document.getElementById("reset_button").innerHTML="<button class='button' id='Reset' style='cursor: pointer; font-size: clamp(10px, 3vw, 13px);  background-color: #1b1829;   border-radius:20px; color: #adf ; border-color: ; -webkit-text-fill-color: initial; padding: 3px'>Reset</button>"
+    document.getElementById("reset_button").style.display="block"
+    document.getElementById('pagination_left3').innerHTML='«'
+  document.getElementById('pagination_right3').innerHTML='»'
+   var input, filter, table, tr, td, i, txtValue;
+   input = document.getElementById("myInput");
+   filter = "fa fa-users"
+   table = document.getElementById("table_home");
+   tr = table.getElementsByTagName("tr");
+
+document.getElementById('pagination3').style.display=''
+   var chunkSize = 30;
+   var Array_data= []
+       var arr_chunk=[]
+   
+
+
+   for (i = 0; i < tr.length; i++) {
+   
+  
+     td = tr[i].getElementsByTagName("td")[6];
+
+     if (td) {
+       txtValue =  td.innerHTML;
+   
+       if (txtValue.indexOf(filter) > -1) {
+         tr[i].style.display = "";
+         tr[i].classList.add("filteredList_doxxed")
+         
+       } else {
+         tr[i].style.display = "none";
+       }
+     }       
+   }
+ }
+ for (let j = 0; j < tr.length; j++) {
+      if (tr[j].classList.contains('filteredList_doxxed')){
+      
+        Array_data.push(tr[j])
+        console.log(Array_data)
+      }
+    }
+       
+      
+for (let i = 0; i < Array_data.length; i += chunkSize) {
+ 
+   const chunk = Array_data.slice(i, i + chunkSize);
+   console.log(Array_data)
+ 
+   arr_chunk.push(chunk)
+   console.log(arr_chunk)
+}
+for ( let i = 0; i < arr_chunk.length; i++){
+  arr_chunk[i].forEach(arr_chunk => {
+    arr_chunk.classList.add('filteredList_doxxed_'+i)
+  })
+}
+for (var b = 0; b < arr_chunk.length; b++){
+var pagination_buttons = document.getElementById('pagination3');
+ var pagination = `
+ <a  data-v-fae5bece class="pagination_function_doxxed filtered_${b}" href="#">${b+1}</a>
+ `
+ pagination_buttons.innerHTML += pagination;}
+
+ const pagination_function= document.querySelectorAll('.pagination_function_doxxed');
+
+   
+   pagination_function.forEach(pagination_function => {
+
+
+  const table_rows= document.querySelectorAll('.Home_Page_'+pagination_function.innerHTML-1);
+
+
+const rows = document.getElementsByTagName("tr");
+const table = document.getElementById("table_home");
+const tr = table.getElementsByTagName("tr");
+
+
+  pagination_function.setAttribute('id', '');
+  tr.forEach(Home_Page => {
+    if (Home_Page.classList.contains('filteredList_doxxed_0')) {
+      Home_Page.style.display = 'table-row';
+      tr[0].style.display='table-row';
+      const pagnigation = document.getElementById('pagination3')
+const pagnigation_a = pagnigation.getElementsByClassName('pagination_function_doxxed')
+console.log(pagnigation_a)
+
+pagnigation_a[0].id= 'active3'
+
+    } 
+    else{
+      Home_Page.style.display = 'none';  tr[0].style.display='table-row';
+    }
+
+    
+
+  });
+
+  
+
+
+
+}
+
+
+);
+
+   
+pagination_function.forEach(pagination_function => {
+
+ pagination_function.addEventListener('click', function handleClick(event) {
+ 
+   const table_rows= document.querySelectorAll('.Home_Page_'+(pagination_function.innerHTML-1));
+
+
+  
+const rows = document.getElementsByTagName("tr");
+const table = document.getElementById("table_home");
+const tr = table.getElementsByTagName("tr");
+const pagnigation = document.getElementById('pagination3')
+const pagnigation_a = pagnigation.getElementsByTagName('a')
+
+
+
+pagnigation_a.forEach (pagnigation_a => {
+pagnigation_a.id= ''
+})
+   pagination_function.setAttribute('id', 'active3');
+
+   tr.forEach(Home_Page => {
+     if (Home_Page.classList.contains('filteredList_doxxed_'+(pagination_function.innerHTML-1))) {
+       Home_Page.style.display = 'table-row';
+       tr[0].style.display='table-row';
+
+  
+   
+     } 
+     else{
+       Home_Page.style.display = 'none';  tr[0].style.display='table-row';
+     
+     }
+
+     
+
+   });
+
+   
+
+ });
+
+}
+
+
+);
+
+
+
+var pagination_right2 = document.getElementById('pagination_right2');
+var pagination_left2 = document.getElementById('pagination_left2');
+var pagnigation = document.getElementById('pagination2')
+var pagnigation_a = pagnigation.getElementsByTagName('a')
+
+
+pagnigation_a.forEach (pagnigation_a => {
+  pagination_left2.addEventListener('click', function handleClick(event) {
+
+console.log('clicked')
+if (pagnigation_a.id== 'active2' && pagnigation_a.innerHTML-1 > 0) {
+console.log('clicked and active found')
+const table = document.getElementById("table_home");
+const tr = table.getElementsByTagName("tr");
+tr.forEach(Home_Page => {
+
+ pagination_function.forEach(pagination_function => {
+
+    if (Home_Page.classList.contains('filtered_kyc_'+(pagnigation_a.innerHTML-2))) {
+ 
+      Home_Page.style.display = 'table-row';
+      tr[0].style.display='table-row';
+      pagnigation_a.id= ''
+       pagnigation_a.previousElementSibling.id= 'active2'
+ 
+    } 
+    
+    else{
+      Home_Page.style.display = 'none';  tr[0].style.display='table-row';
+    
+    }})})
+
+
+}
+})
+
+
+})
+var pagnigation = document.getElementById('pagination3')
+var pagnigation_a = pagnigation.getElementsByTagName('a')
+var pagination_right3 = document.getElementById('pagination_right3');
+var pagination_left3 = document.getElementById('pagination_left3');
+    
+
+pagnigation_a.forEach (pagnigation_a => {
+pagination_left3.addEventListener('click', function handleClick(event) {
+console.log('clicked')
+console.log(pagnigation_a)
+if (pagnigation_a.id== 'active3' && pagnigation_a.innerHTML-1 > 0) {console.log('found active')
+
+console.log('clicked and active found')
+const table = document.getElementById("table_home");
+const tr = table.getElementsByTagName("tr");
+tr.forEach(Home_Page => {
+
+ pagination_function.forEach(pagination_function => {
+
+    if (Home_Page.classList.contains('filteredList_doxxed_'+(pagnigation_a.innerHTML-2))) {
+ 
+      Home_Page.style.display = 'table-row';
+      tr[0].style.display='table-row';
+      pagnigation_a.id= ''
+       pagnigation_a.previousElementSibling.id= 'active3';
+      
+ 
+    } 
+    
+    else{
+      Home_Page.style.display = 'none';  tr[0].style.display='table-row';
+    
+    }})})
+
+
+
+}
+})})
+
+
+
+
+
+
+
+ })
+ 
+ var reset_button = document.getElementById("reset_button");
+ reset_button.addEventListener("click", function (){
+
+count++ 
+
+
+  {
+
+  const paginatons_others = document.querySelectorAll('.pagination_others')
+  console.log(paginatons_others)
+  paginatons_others.forEach(paginatons_others => {
+    paginatons_others.style.display="none"
+   
+});
+const pagination_home = document.querySelectorAll(".pagination_reset")
+pagination_home.forEach(pagination_home => {
+  pagination_home.style.display=""
+ 
+
+})
+  const pagination_function= document.querySelectorAll('.pagination_function');
+   
+  const pagination_button = document.getElementById("pagination_buttons")
+   pagination_button.style.display=""
+   
+   pagination_function.forEach(pagination_function => {
+     
+  const table_rows= document.querySelectorAll('.Home_Page_'+pagination_function.innerHTML-1);
+const rows_filtered = document.querySelectorAll('.filteredList');
+
+
+const rows = document.getElementsByTagName("tr");
+
+const table = document.getElementById("table_home");
+const tr = table.getElementsByTagName("tr");
+
+
+  pagination_function.setAttribute('id', 'pagination_function_active');
+  tr.forEach(Home_Page => {
+    Home_Page.classList.remove("filteredList_doxxed_0")
+    Home_Page.classList.remove("filtered_kyc_0")
+    Home_Page.classList.remove("filteredList_doxxed_1")
+    Home_Page.classList.remove("filtered_kyc_1")
+    Home_Page.classList.remove("filteredList_doxxed_2")
+    Home_Page.classList.remove("filtered_kyc_2")
+    Home_Page.classList.remove("filteredList_doxxed_3")
+    Home_Page.classList.remove("filtered_kyc_3")
+    Home_Page.classList.remove("filteredList_doxxed_4")
+    Home_Page.classList.remove("filtered_kyc_4")
+    Home_Page.classList.remove("filteredList_doxxed_5")
+    Home_Page.classList.remove("filtered_kyc_5")
+    if(Home_Page.classList.contains('filteredList_doxxed')){
+     
+      Home_Page.classList.remove("filteredList_doxxed")
+    }
+    if(Home_Page.classList.contains('filteredList_kyc')){
+     
+     Home_Page.classList.remove("filteredList_kyc")
+   }
+    if (Home_Page.classList.contains('Home_Page_0')) {
+      Home_Page.style.display = 'table-row';
+      tr[0].style.display='table-row';
+      const pagnigation = document.getElementById('pagination')
+const pagnigation_a = pagnigation.getElementsByTagName('a')
+
+
+pagnigation_a[0].id= 'active'
+
+    } 
+    else{
+      Home_Page.style.display = 'none';  tr[0].style.display='table-row';
+    }
+
+    
+
+  });
+
+  
+
+
+
+})
+ }
+ reset_button.style.display="none";
+ 
+ })
+
+
+
 
    } catch (err) {
        console.error(err);
    }
+ 
 
 
 }create_table()
 
+
+
+const pagnigation = document.getElementById('pagination3')
+const pagnigation2 = document.getElementById('pagination2')
+const pagnigation_a = pagnigation.getElementsByTagName('a')
+const pagnigation_a2 = pagnigation2.getElementsByTagName('a')
+const pagination_right3 = document.getElementById('pagination_right3');
+const pagination_left3 = document.getElementById('pagination_left3');
+const pagination_right2 = document.getElementById('pagination_right2');
+pagination_right3.addEventListener('click', function () {
+
+let counter = document.getElementById('active3').innerHTML
+
+  console.log(document.getElementsByClassName('filtered_'+counter)[0])
+var x = document.getElementsByClassName('filtered_'+counter)[0]
+var y = document.getElementsByClassName('filtered_'+(counter-1))[0]
+
+console.log(counter-1)
+x.id='active3'
+y.id='not_active'
+console.log(y)
+
+
+const table = document.getElementById("table_home");
+const tr = table.getElementsByTagName("tr");
+const pagination_current = document.getElementById('active3')
+
+
+const pagination_number = pagination_current.innerHTML
+
+if (pagnigation_a.length != pagination_number-1){
+
+ const pagination_next = pagination_current.nextElementSibling
+
+ 
+
+ console.log(counter)
+tr.forEach(Home_Page => {
+     if (Home_Page.classList.contains('filteredList_doxxed_'+(pagination_number-1))) {
+       Home_Page.style.display = 'table-row';
+       tr[0].style.display='table-row';
+    
+     var arr_home_page = []
+     arr_home_page.push(Home_Page)
+  console.log(arr_home_page)
+   counter++;
+
+     } 
+     else{
+       Home_Page.style.display = 'none';  tr[0].style.display='table-row';
+     
+     }
+
+     
+
+   });}
+ 
+})
+
+
+pagination_right2.addEventListener('click', function () {
+
+
+  let counter2 = document.getElementById('active2').innerHTML
+  
+
+console.log(document.getElementsByClassName('filtered_'+counter2)[0])
+var x = document.getElementsByClassName('filtered_'+counter2)[0]
+var y = document.getElementsByClassName('filtered_'+(counter2-1))[0]
+
+console.log(counter2-1)
+x.id='active2'
+y.id='not_active'
+
+
+const table = document.getElementById("table_home");
+const tr = table.getElementsByTagName("tr");
+const pagination_current = document.getElementById('active2')
+
+
+const pagination_number = pagination_current.innerHTML
+
+if (pagnigation_a2.length != pagination_number-1){
+console.log(pagination_number)
+
+
+ 
+
+
+tr.forEach(Home_Page => {
+     if (Home_Page.classList.contains('filtered_kyc_'+(pagination_number-1))) {
+       Home_Page.style.display = 'table-row';
+       tr[0].style.display='table-row';
+    
+   console.log(pagination_number)
+   counter2++;
+
+     } 
+     else{
+       Home_Page.style.display = 'none';  tr[0].style.display='table-row';
+     
+     }
+
+     
+
+   });}
+
+
+})
+
+
+
     },
+    metaInfo(){
+      return{
+		logo:  'https://upcdn.io/kW15aw3WhQr9pTYxePdsemy',
+        title: `BSC Spotter`,
+        meta: [
+
+        {name: 'twitter:image', content: 'https://upcdn.io/kW15aw3WhQr9pTYxePdsemy'},
+{name: 'twitter:title', content: 'BSC Spotter'},
+{name: 'twitter:description', content: 'Use the tools on BSC Spotter to find Low-Cap Crypto Gems on Binance Smart Chain'},
+
+        ]
+      }
+     }
+  
+  
   }
   
   
 
-  
 
 
    
@@ -865,7 +2323,21 @@ tr.forEach(Home_Page => {
   
   </script>
   <style scoped>
-
+    .top{
+      min-width: 80px;
+    }
+    #background_color_rating{
+      color: white
+    }
+    .rating_column{
+      min-width: 130px;
+      position: relative;
+      
+    }
+ 
+.rating_dropdown_button{
+  cursor: pointer;
+}
     .divider{
       opacity: 0;
     }
@@ -897,7 +2369,7 @@ tr.forEach(Home_Page => {
   
   /* Dropdown Content (Hidden by Default) */
   .dropdown{
-    float: center;
+    
     position: relative;
   
     
@@ -915,19 +2387,21 @@ tr.forEach(Home_Page => {
   background-color: dodgerblue;
   color: white;
 }
-#active2{
+#active2, #active3, #active4, #active5, #active6{
   background-color: dodgerblue;
   color: white;
 }
-#pagination_left{
+#pagination_left, #pagination_left2, #pagination_left3, #pagination_left4, #pagination_left5, #pagination_left6{
   margin-right: 10px;
   font-size: 25px;
   color: white;
+  cursor: pointer;
 }
-#pagination_right{
+#pagination_right, #pagination_right2, #pagination_right3, #pagination_right4, #pagination_right5, #pagination_right6{
   margin-left: 10px;
   font-size: 25px;
   color: white;
+cursor: pointer;
 }
 .pagination a:hover:not(.active) {background-color: #ddd;}
 
@@ -941,7 +2415,16 @@ tr.forEach(Home_Page => {
     z-index: 1;
       transform: translate(-0%, -.4%);
   }
-  
+  .dropdown-rating {
+    padding: 10px;
+    display: none;
+    position: absolute;
+    background-color: #212122;
+width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+      
+  }
   /* Links inside the dropdown */
   .dropdown-content a {
     color: black;
@@ -949,9 +2432,13 @@ tr.forEach(Home_Page => {
     display: block;
   }
   
-  
+  .dropdown-rating a {
+    color: black;
+    text-decoration: none;
+    display: block;
+  }
   .dropdown-content a:hover {background-color: #ddd}
-  
+  .dropdown-rating a:hover {background-color: #ddd}
   .show {display:block;}
   a {
     text-decoration: none;
@@ -1003,6 +2490,7 @@ tr.forEach(Home_Page => {
     font-family: 'Goldman';
     border-collapse: collapse;
     width: 100%;
+   
     
   }
   
@@ -1022,6 +2510,7 @@ tr.forEach(Home_Page => {
   
 
   .token_table+td, th {
+  
     border: collapse;
     text-align: left;
     padding: 5px;
@@ -1043,7 +2532,7 @@ tr.forEach(Home_Page => {
       border-bottom-right-radius: 0px;
       padding-top: 20px;
       margin: auto !important;
-
+      min-height: 600px;
   }
   i {
     font-size: 15px;
@@ -1088,8 +2577,8 @@ tr.forEach(Home_Page => {
    width: 100%;
     height: auto;
   max-height: 110px;
-  max-width: 90px;
-  
+  max-width: 80px;
+  border-radius: 330px;
   
   
   
@@ -1126,6 +2615,9 @@ tr.forEach(Home_Page => {
    
   }}
 @media (max-width: 400px){
+  #Reset{
+    font-size: clamp(10px, 3vw, 13px);
+  }
   #container_home{
     padding-bottom: 10px;
   }
@@ -1230,7 +2722,8 @@ padding-left: 0px;
   
   .icon_0_big{
       width: 6%;
-    transform: translate(75%,4%);
+      transform: translate(60%,4%);
+     padding-right: 10px;
   }
    body {background: #434343 }
   

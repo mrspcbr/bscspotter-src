@@ -5,7 +5,7 @@
 
 
 		<div id="top_div_mobile">
-
+<div class='float_left' style="float:left;">    <span id="icons_menu"> <a href = 'https://t.me/BSC_Spotter'><i  class="fa fa-telegram" aria-hidden="true" size=""></i>&nbsp;</a> <a href = 'https://twitter.com/BscSpotter'><i class="fa fa-twitter"   aria-hidden="true"></i></a></span></div>
 
 <span class="search_span"><span id="search_check_mobile" class="fa-stack fa-lg" style="color:#DBAC04">
   <span class="fa fa-circle-thin fa-stack-2x" style="color:#DBAC04"></span>
@@ -13,7 +13,7 @@
 </span>
 
 
-<div class="float_left" style="float:right;"><span style="cursor:pointer" id="openNav">&#9776; </span></div>
+<div class="float_right" style="float:right;"><span style="cursor:pointer" id="openNav">&#9776; </span></div>
 
 
 </div>
@@ -76,7 +76,7 @@ export default {
 	
     searchbar
     },
-	
+
 };
 window.addEventListener('load', (event) => {
 	var opennav = document.getElementById("openNav");
@@ -117,6 +117,9 @@ function openSearch(){
 </script>
 
 <style>
+	#icons_menu{
+	position: absolute;	
+	}
 	@media(min-width:600px){
 ::-webkit-scrollbar {
   width: 10px;
@@ -178,11 +181,15 @@ font-size: 18px
 
 #search_check_mobile{
 	display: inline-block !important;
+
+    margin: 10px 10px 0 0;
+    padding: 5px 10px
 	
 }
 
 #top_div_mobile{
-	display: block !important
+	display: block !important;
+	text-align: center;
 }
 
 	}
@@ -280,6 +287,8 @@ transform: translate(0%,4%);
 		padding: 0;
 		font-size: 15px;
 		display: none;
+		margin: auto;
+	
 	}
 	.circle-icon {
     background: #ffc0c0;

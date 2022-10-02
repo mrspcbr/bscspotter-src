@@ -29,7 +29,7 @@ Contact a financial advisor before making investing decisions.<br>©Copyright BS
   <div>
     <img data-v-fae5bece="" id="site_logo" src="@/assets/images/logos/bscspotter_logo/Logo.png" class="site_logo"></div>
 <div>
-   <span id="icons_footer"> <a href = 'https://t.me/BSCSpotter'><i  class="fa fa-telegram" aria-hidden="true" size=""></i>&nbsp;</a> <a href = 'https://twitter.com/BscSpotter'><i class="fa fa-twitter"   aria-hidden="true"></i></a> &nbsp; <a href = 'mailto:contact@bscspotter.com'><i class="fa fa-envelope"  aria-hidden="true"></i></a></span></div>
+   <span id="icons_footer"> <a href = 'https://t.me/BSC_Spotter'><i  class="fa fa-telegram" aria-hidden="true" size=""></i>&nbsp;</a> <a href = 'https://twitter.com/BscSpotter'><i class="fa fa-twitter"   aria-hidden="true"></i></a> &nbsp; <a href = 'mailto:contact@bscspotter.com'><i class="fa fa-envelope"  aria-hidden="true"></i></a></span></div>
   </div>
 </div>
    

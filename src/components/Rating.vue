@@ -112,12 +112,18 @@ var team_score=-10
 var progress_html = document.querySelector(".progress_bar")
 
 var addition = ((team_score+utility_score+kyc_score+liq_score)/220)
-console.log(team_score,utility_score,kyc_score,liq_score)
-var final_score=Math.round((addition)*100)
+if (addition>100){
+  var final_score =100
+}
+else{var final_score=Math.round((addition)*100)}
+
 
 var progress = await final_score
 console.log(progress)
-if (final_score>80){
+if (final_score>100){
+  progress_html.style=`--primary:#036b18; --value:100`
+}
+else if (final_score>80){
 progress_html.style=`--primary:#036b18; --value:${progress}`
 }
 if(60<=final_score && final_score<=80){

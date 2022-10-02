@@ -18,6 +18,10 @@ import TradingView from '@/components/TVChartContainer.vue'
 import Flicking from "@egjs/vue-flicking";
 import "@egjs/vue-flicking/dist/flicking.css";
 
+import VueResizeText from 'vue-resize-text';
+import Meta from "vue-meta";
+Vue.use(Meta);
+Vue.use(VueResizeText)
 Vue.use(Flicking);
 
 Vue.use(TwitterFeed);

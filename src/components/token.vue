@@ -13,13 +13,13 @@
        <div class="row tokenPage" >
            <div class="column left" >
                
-               <div id="puss_logo"><img :src="token_page.logo_link_api"> </div>
+               <div id="puss_logo"><img id="image_logo" :src="token_page.logo_link_api"> </div>
             
            </div>
            <div class="column middle" style="background-color:#005a68;">
               <div class="separator" style = "color:#dbac04" ><a :href="token_page.bscscan" id="separator"><cryptoicon symbol="bnb" size="40" /></a> &nbsp;  &nbsp;<span id="text_title"><b>{{token_page.name}}</b></span></div>
              
-               <span class = "desc" style = "color: white" id="desc" > {{token_page.desc}} </span>
+            <div ><span class = "desc"  style = "color: white" id="desc" > {{token_page.desc}} </span></div> 
                <br><div  id="puss_icons">
               <br > <a id='telegram' class="socials" :href="token_page.telegram"><i class="fa fa-telegram" style="font-size:clamp(24px, 2vw, 36px);color:#DBAC04"></i> </a>
               <a id="whitepaper" class="socials" :href="token_page.whitepaper"><i class="fa fa-file-text" style="font-size:clamp(24px, 2vw, 30px); color:#DBAC04"></i></a>
@@ -388,27 +388,43 @@ import "@egjs/flicking-plugins/dist/pagination.css";
         wallettAddressRating:'',
         name: '',
         symbol: '',
-       
+       logo: '' ,
         contractaddress: '', 
         twitter_link: '',
         kyc_link: '',
           liq_score: '',
+          desc: '',
            }
         },
        async created(){
       const response = await axios.get('https://www.api.bscspotter.com/listings_symbol')
        var response_data = response.data
        var found = false;
+       var str = this.id.split('_').join(' ')
+    
+       const arr2 = str.split(" ");
 
-       
-let obj = await response_data.find(o => o.symbol == this.id);
+for (var i = 0; i < arr2.length; i++) {
+    arr2[i] = arr2[i].charAt(0).toUpperCase() + arr2[i].slice(1);
+
+}
+
+const str2 = arr2.join(" ");
+console.log(str2);
+
+var id_fix = str2
+console.log(id_fix)
+let obj = await response_data.find(o => o.name == id_fix);
 
 if (obj !== undefined){
 const loading_box = document.getElementById('loading_box')
 loading_box.style.display='none'
-const listing_response = await axios.get ('https://www.api.bscspotter.com/get_token_info/'+this.id)
+const listing_response = await axios.get ('https://www.api.bscspotter.com/get_token_info/'+id_fix)
+
            const listing_response_data = listing_response.data
            this.token_page=(listing_response_data)
+           this.logo = listing_response_data.logo_link_api
+      
            const contract_address = listing_response_data.token
         const symbol = listing_response_data.symbol
         this.wallettAddressRating = listing_response_data.wallet
@@ -426,7 +442,7 @@ const listing_response = await axios.get ('https://www.api.bscspotter.com/get_to
       this.team = listing_response_data.team
       this.twitter_link = listing_response_data.twitter
       this.kyc_link = listing_response_data.kyc_link
-    
+    this.desc = listing_response_data.desc
 const twitter_screen_name = twitter.substring(20)
 
 
@@ -456,7 +472,7 @@ var view_number = views+1
 
 
 
-    axios.get('https://www.api.bscspotter.com/get_token_page/'+this.id).then(response => {
+    axios.get('https://www.api.bscspotter.com/get_token_page/'+id_fix).then(response => {
       this.token_page_price = response.data
    var liq_usd = response.data.liq_usd
    var liq_fixed = (parseFloat(liq_usd).toFixed(2))
@@ -465,13 +481,11 @@ var view_number = views+1
 var liq_html= liq_fixed
 
 const liq_json =  JSON.parse(liq_html)
-if (liq_json>85000)
-{var liq_score = 100
-var liq_score_final =  100
-this.liq_score =liq_score_final
-
+if(liq_json>85000){
+  var liq_score = 100
+  this.liq_score =100
 }
-else if(liq_json<=85000){
+ else if(liq_json>16000){
 var liq_ammount = (liq_json/85000)
 var liq_score = liq_ammount*100
 
@@ -479,7 +493,7 @@ var liq_score_final =  parseFloat(liq_score).toFixed(0)
 this.liq_score =liq_score_final
 
 }
-else if(liq_json<16000){
+else if(liq_json<=16000){
 var liq_ammount = (liq_json/60000)
 var liq_score = liq_ammount*100
 var liq_score_final =  parseFloat(liq_score).toFixed(0)
@@ -626,12 +640,21 @@ else {
 }
           
         },
-        mounted (){
- 
+     metaInfo(){
+      return{
       
- 
-          
-        }
+        title: `${this.symbol} | BSC Spotter `,
+        meta: [
+{
+  name: 'description',
+  content: this.desc.slice(0,150),
+},
+{name: 'twitter:image', content: this.logo},
+{name: 'twitter:title', content:`${this.symbol} | BSC Spotter `},
+{name: 'twitter:description', content:  this.desc.slice(0,150)},
+        ]
+      }
+     }
     }
 
       
@@ -647,6 +670,12 @@ window.addEventListener('load', async function (){  {
 </script>
 
 <style scoped>
+  #center_desc{
+    margin-top: auto;
+  }
+  #image_logo{
+    border-radius: 350px;
+  }
   .flicking-pagination {
     transform: translate(0px,10px);
   }
@@ -692,7 +721,8 @@ window.addEventListener('load', async function (){  {
 }
 
   .image{
-    width: 40px
+    width: 40px;
+  
   }
 
   #logo_link_mobile{
@@ -783,8 +813,10 @@ th, p, h1, h2{  background-color: #ffffff;
 
 
 .desc{
+  
    font-family: 'Goldman';
-   font-size: clamp(15px, 1.5vw, 19px)
+   font-size: clamp(15px, 1.5vw, 19px);
+   line-height: 130%;
    ;
 }
 
@@ -891,9 +923,14 @@ max-width: 1700px;
 background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
 height: auto;
     }
-
+#puss_icons{
+  margin-top: auto;
+}
     .middle {
+ 
     width: 50%;
+    display: flex;
+  flex-direction: column;
     background-color: #537895;
 background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
 height: auto;
@@ -978,6 +1015,7 @@ height: auto;
   display: flex;
   align-items: center;
   text-align: center;
+  margin-bottom: 5px;
 }
 
 .separator_paragraphs{
@@ -1200,10 +1238,13 @@ input:checked + .slider:before {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 25px;
  
 }
+
 img{
   width: 100%;
+  border-radius: 25px;
 }
 #buyToken2{
   display:none

@@ -2,18 +2,18 @@
   
 
      <body>
-        <h1>Add tokens here</h1>
+      
         <div id="form">
         <form action="https://www.api.bscspotter.com/add_request" method="post" id="token_form">
           <h2> Contract Address (BSC): </h2>
-            <input type="text" name="token" placeholder="0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"> <br>
+            <input type="text" name="token" placeholder="Binance Smart Chain Token Address"> <br>
            
             <h2> Total Supply: </h2>
             <input type="text" name="supply" placeholder="1000000000"> <br>
            
             <input type="text" name="bscscan" placeholder="bscscan link" id="bscscan">
             <h2> Liquidity Wallet Address </h2> 
-            <input type="text" name="wallet" placeholder="0xabc00991cba40ddd67f6fcb74fe8d8062320f7cd">
+            <input type="text" name="wallet" placeholder="PancakeSwap Liquidity Pool BSC Address,  ">
             <br>
           <h2>KYC Status: </h2>
             <select id="kyc" name="kyc">
@@ -42,16 +42,16 @@
         
        
             <h2>Link to Telegram Group:</h2>
-            <input type="text" name="telegram" placeholder="https://t.me/...">
+            <input type="text" name="telegram" placeholder=" FULL URL, for example: https://t.me/...">
             
             <br>
             <h2>Link to Whitepaper:</h2>
             <input type="text" name="whitepaper" placeholder="https://bscspotter.com/whitepaper"> <br>
             <h2>Link to Twitter:</h2>
-            <input type="text" name="twitter" placeholder="https://twitter.com/...">
+            <input type="text" name="twitter" placeholder="FULL URL, for example: https://twitter.com/...">
             <br>
             <h2>Link to Project's Website:</h2>
-            <input type="text" name="website" placeholder="website">
+            <input type="text" name="website" placeholder="Website URL">
            
             
           
@@ -82,17 +82,17 @@
            
             <h2>Brief Description of Project:</h2>
           
-            <TextArea  data-placeholder="Edit me" class ='what_is' id = 'description' form="token_form" name="description" contenteditable="true" maxlength="220"  placeholder="Brief Description (MAX 220 characters)" > </TextArea >
+            <TextArea  data-placeholder="Edit me" class ='what_is' id = 'description' form="token_form" name="description" contenteditable="true" maxlength="280"  placeholder="Brief Description (MAX 280 characters)" > </TextArea >
             <br>
             <h2>Describe the Project:</h2>
-         <TextArea  data-placeholder="Edit me" class ='what_is' id = 'what_is_project' form="token_form" name="what_is_project" contenteditable="true" maxlength="300" placeholder="Describe Project (MAX 380 Characters)"> </TextArea >
+         <TextArea  data-placeholder="Edit me" class ='what_is' id = 'what_is_project' form="token_form" name="what_is_project" contenteditable="true" maxlength="750" placeholder="Describe Project (MAX 750 Characters)"> </TextArea >
 
         <br>
         <h2>Describe the Token's Utility:</h2>
-         <TextArea  data-placeholder="Edit me" class ='what_is' id = 'what_is_token' form="token_form"  name='what_is_token' contenteditable="true" maxlength="300" placeholder="Describe Token's Utility (MAX 380 Characters)"> </TextArea >
+         <TextArea  data-placeholder="Edit me" class ='what_is' id = 'what_is_token' form="token_form"  name='what_is_token' contenteditable="true" maxlength="750" placeholder="Describe Token's Utility (MAX 750 Characters)"> </TextArea >
          <br>
          <h2>Describe Future Plans:</h2>
-         <TextArea  data-placeholder="Edit me" class ='what_is' id = 'future_plans' form="token_form" name="future_plans" contenteditable="true" maxlength="300"  placeholder="Describe Future Plans (MAX 380 Characters)"> </TextArea >
+         <TextArea  data-placeholder="Edit me" class ='what_is' id = 'future_plans' form="token_form" name="future_plans" contenteditable="true" maxlength="600"  placeholder="Describe Future Plans (MAX 600 Characters)"> </TextArea >
          
          <br>
          <h2>Contact Information:</h2>
@@ -171,7 +171,21 @@ ele.addEventListener('blur', function (e) {
      
       })(event);
     }
-  }
+  },
+  metaInfo(){
+      return{
+        title: `Submit Token | BSC Spotter`,
+        meta: [
+        {name: 'twitter:image', content: 'https://upcdn.io/kW15aw3WhQr9pTYxePdsemy'},
+{name: 'twitter:title', content: 'Submit Token | BSC Spotter'},
+{name: 'twitter:description', content: 'Submit a new BSC token to be listed on BSC Spotter. We will review your token and add it ASAP.'},
+{
+  name: 'description',
+  content: 'Submit a new BSC token to be listed on BSC Spotter. We will review your token and add it ASAP.'
+}
+        ]
+      }
+     }
 })
   
 
@@ -191,7 +205,7 @@ window.addEventListener("load", function(){
     display: none;
   }
   div [placeholder]{
-color: gray;
+color: black;
 
   }
   textarea{

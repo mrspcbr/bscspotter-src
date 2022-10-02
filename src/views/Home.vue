@@ -172,7 +172,7 @@ var pagination_buttons = document.getElementById('pagination');
  const token = listing_data.token
 
  document.getElementById('name_'+token).innerHTML=listing_name
- document.getElementById('link_'+token+ '_name').href="http://www.bscspotter.com/token/"+listing_symbol
+ document.getElementById('link_'+token+ '_name').href="http://www.bscspotter.com/token/"+listing_name
  document.getElementById('icon_'+token).innerHTML='<img data-v-fae5bece src="'+logo_link_api+ '" class="listing_logo">'
  
  if (kyc==Verified){

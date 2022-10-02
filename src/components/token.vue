@@ -649,9 +649,10 @@ else {
   name: 'description',
   content: this.desc.slice(0,150),
 },
+{name:"twitter:card", content:"summary_large_image"},
 {name: 'twitter:image', content: this.logo},
 {name: 'twitter:title', content:`${this.symbol} | BSC Spotter `},
-{name: 'twitter:description', content:  this.desc.slice(0,150)},
+{name: 'twitter:description', content:`${this.name} is live on BSC Spotter, Check it out today!`},
         ]
       }
      }

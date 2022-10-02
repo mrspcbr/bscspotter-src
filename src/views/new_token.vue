@@ -178,11 +178,13 @@ ele.addEventListener('blur', function (e) {
         meta: [
         {name: 'twitter:image', content: 'https://upcdn.io/kW15aw3WhQr9pTYxePdsemy'},
 {name: 'twitter:title', content: 'Submit Token | BSC Spotter'},
+{name:"twitter:card", content:"summary_large_image"},
 {name: 'twitter:description', content: 'Submit a new BSC token to be listed on BSC Spotter. We will review your token and add it ASAP.'},
 {
   name: 'description',
   content: 'Submit a new BSC token to be listed on BSC Spotter. We will review your token and add it ASAP.'
 }
+
         ]
       }
      }

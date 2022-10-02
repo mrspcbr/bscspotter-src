@@ -2305,6 +2305,7 @@ tr.forEach(Home_Page => {
 
         {name: 'twitter:image', content: 'https://upcdn.io/kW15aw3WhQr9pTYxePdsemy'},
 {name: 'twitter:title', content: 'BSC Spotter'},
+{name:"twitter:card", content:"summary_large_image"},
 {name: 'twitter:description', content: 'Use the tools on BSC Spotter to find Low-Cap Crypto Gems on Binance Smart Chain'},
 
         ]

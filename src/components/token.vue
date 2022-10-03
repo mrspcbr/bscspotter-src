@@ -410,10 +410,10 @@ for (var i = 0; i < arr2.length; i++) {
 }
 
 const str2 = arr2.join(" ");
-console.log(str2);
+
 
 var id_fix = str2
-console.log(id_fix)
+
 let obj = await response_data.find(o => o.name == id_fix);
 
 if (obj !== undefined){
@@ -649,10 +649,14 @@ else {
   name: 'description',
   content: this.desc.slice(0,150),
 },
-{name:"twitter:card", content:"summary_large_image"},
-{name: 'twitter:image', content: this.logo},
-{name: 'twitter:title', content:`${this.symbol} | BSC Spotter `},
-{name: 'twitter:description', content:`${this.name} is live on BSC Spotter, Check it out today!`},
+
+
+{name: 'og:title', content:`${this.name} | BSC Spotter `},
+{name: 'og:description', content:`${this.name} is live on BSC Spotter, Check it out today!`},
+{name: 'og:image', content: this.logo},
+{name: 'og:url', content: `https://bscspotter.com/token/${this.name}`},
+{name: 'og:type', content: 'website'},
+{name: 'og:site_name', content: 'BSC Spotter'},
         ]
       }
      }

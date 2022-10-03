@@ -137,10 +137,14 @@
        
         title: `Contact Us | BSC Spotter`,
         meta: [
-        {name: 'twitter:image', content: 'https://upcdn.io/kW15aw3WhQr9pTYxePdsemy'},
-        {name:"twitter:card", content:"summary_large_image"},
-{name: 'twitter:title', content: 'Contact Us | BSC Spotter'},
-{name: 'twitter:description', content: 'Contact us today for Advertising, Token listing, and more.'},
+      
+        
+{name: 'og:title', content:` Contact Us | BSC Spotter `},
+{name: 'og:description', content:`Contact us today for Advertising, Token listing, and more.`},
+{name: 'og:image', content:"https://upcdn.io/kW15aw3WhQr9pTYxePdsemy"},
+{name: 'og:url', content: `https://www.bscspotter.com/contact`},
+{name: 'og:type', content: 'website'},
+{name: 'og:site_name', content: 'BSC Spotter'},
 {
   name: 'description',
   content: 'Contact us today for Advertising, Token listing, and more.'

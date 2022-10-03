@@ -265,10 +265,10 @@ var pagination_buttons = document.getElementById('pagination');
  }
  )  
  const rating_dropdown=  document.getElementById('rating_dropdown')
-console.log(rating_dropdown)
+
  rating_dropdown.addEventListener('click', function () {
   document.getElementById("background_color_rating").style.backgroundColor = "#212122";
- console.log( document.getElementById("background_color_rating"))
+
   document.getElementById("dropdown_rating").style.display="block";
  
 
@@ -792,7 +792,7 @@ const pagnigation_a = pagnigation.getElementsByTagName('a')
 const table = document.getElementById("table_home");
 const tr = table.getElementsByTagName("tr");
 const pagination_current = document.getElementById(`${active}`)
-console.log(pagination_current)
+
 
 const pagination_number = pagination_current.innerHTML
 
@@ -929,7 +929,7 @@ if (tr[i].classList.contains("filteredList_kyc")){
       if (tr[j].classList.contains('filteredList_highly_rated')){
       
         Array_data.push(tr[j])
-        console.log(Array_data)
+     
       }
     }
        
@@ -937,10 +937,10 @@ if (tr[i].classList.contains("filteredList_kyc")){
 for (let i = 0; i < Array_data.length; i += chunkSize) {
  
    const chunk = Array_data.slice(i, i + chunkSize);
-   console.log(Array_data)
+   
  
    arr_chunk.push(chunk)
-   console.log(arr_chunk)
+
 }
 for ( let i = 0; i < arr_chunk.length; i++){
   arr_chunk[i].forEach(arr_chunk => {
@@ -975,7 +975,7 @@ const tr = table.getElementsByTagName("tr");
       tr[0].style.display='table-row';
       const pagnigation = document.getElementById('pagination4')
 const pagnigation_a = pagnigation.getElementsByClassName('pagination_function_filtered_top_rating')
-console.log(pagnigation_a)
+
 
 pagnigation_a[0].id= 'active4'
 
@@ -1020,8 +1020,7 @@ pagnigation_a.id= ''
    pagination_function.setAttribute('id', 'active4');
 
    tr.forEach(Home_Page => {
-    console.log(Home_Page)
-    console.log(pagination_function.innerHTML-1)
+
      if (Home_Page.classList.contains('filtered_high_rated_'+(pagination_function.innerHTML-1))) {
        Home_Page.style.display = 'table-row';
        tr[0].style.display='table-row';
@@ -1059,9 +1058,11 @@ var pagnigation_a = pagnigation.getElementsByTagName('a')
 pagnigation_a.forEach (pagnigation_a => {
   pagination_left4.addEventListener('click', function handleClick(event) {
 
-console.log('clicked')
+
+  
+  
 if (pagnigation_a.id== 'active4' && pagnigation_a.innerHTML-1 > 0) {
-console.log('clicked and active found')
+
 const table = document.getElementById("table_home");
 const tr = table.getElementsByTagName("tr");
 tr.forEach(Home_Page => {
@@ -1190,7 +1191,8 @@ if (tr[i].classList.contains("highly_rated")){
       if (tr[j].classList.contains('filteredList_low_rated')){
       
         Array_data.push(tr[j])
-        console.log(Array_data)
+    
+      
       }
     }
        
@@ -1198,10 +1200,10 @@ if (tr[i].classList.contains("highly_rated")){
 for (let i = 0; i < Array_data.length; i += chunkSize) {
  
    const chunk = Array_data.slice(i, i + chunkSize);
-   console.log(Array_data)
+
  
    arr_chunk.push(chunk)
-   console.log(arr_chunk)
+
 }
 for ( let i = 0; i < arr_chunk.length; i++){
   arr_chunk[i].forEach(arr_chunk => {
@@ -1237,7 +1239,7 @@ const tr = table.getElementsByTagName("tr");
       const pagnigation = document.getElementById('pagination6')
 const pagnigation_a = pagnigation.getElementsByClassName('pagination_function_filtered_low_rating')
 
-console.log(pagnigation_a)
+
 pagnigation_a[0].id= 'active6'
 
     } 
@@ -1281,8 +1283,7 @@ pagnigation_a.id= ''
    pagination_function.setAttribute('id', 'active6');
 
    tr.forEach(Home_Page => {
-    console.log(Home_Page)
-    console.log(pagination_function.innerHTML-1)
+   
      if (Home_Page.classList.contains('filteredList_low_rated_'+(pagination_function.innerHTML-1))) {
        Home_Page.style.display = 'table-row';
        tr[0].style.display='table-row';
@@ -1321,7 +1322,7 @@ var pagnigation_a = pagnigation.getElementsByTagName('a')
 pagnigation_a.forEach (pagnigation_a => {
   pagination_left6.addEventListener('click', function handleClick(event) {
 
-console.log('clicked')
+
 if (pagnigation_a.id== 'active6' && pagnigation_a.innerHTML-1 > 0) {
 
 const table = document.getElementById("table_home");
@@ -1374,7 +1375,7 @@ pag1.forEach(pag1 => {
   pag3.forEach(pag2 => {
     pag2.style.display='none';})
     var pag4 = document.querySelectorAll('.pag4')
-    console.log(pag4)
+
   pag4.forEach(pag2 => {
     pag2.style.display='none';})
     var pag5 = document.querySelectorAll('.pag5')
@@ -1440,7 +1441,7 @@ if (tr[i].classList.contains("medium_rated")){
       if (tr[j].classList.contains('filteredList_med_rated')){
       
         Array_data.push(tr[j])
-        console.log(Array_data)
+    
       }
     }
        
@@ -1448,10 +1449,10 @@ if (tr[i].classList.contains("medium_rated")){
 for (let i = 0; i < Array_data.length; i += chunkSize) {
  
    const chunk = Array_data.slice(i, i + chunkSize);
-   console.log(Array_data)
+
  
    arr_chunk.push(chunk)
-   console.log(arr_chunk)
+
 }
 for ( let i = 0; i < arr_chunk.length; i++){
   arr_chunk[i].forEach(arr_chunk => {
@@ -1531,8 +1532,7 @@ pagnigation_a.id= ''
    pagination_function.setAttribute('id', 'active5');
 
    tr.forEach(Home_Page => {
-    console.log(Home_Page)
-    console.log(pagination_function.innerHTML-1)
+
      if (Home_Page.classList.contains('filteredList_med_rated_'+(pagination_function.innerHTML-1))) {
        Home_Page.style.display = 'table-row';
        tr[0].style.display='table-row';
@@ -1571,7 +1571,6 @@ var pagnigation_a = pagnigation.getElementsByTagName('a')
 pagnigation_a.forEach (pagnigation_a => {
   pagination_left5.addEventListener('click', function handleClick(event) {
 
-console.log('clicked')
 if (pagnigation_a.id== 'active5' && pagnigation_a.innerHTML-1 > 0) {
 
 const table = document.getElementById("table_home");
@@ -1663,7 +1662,7 @@ document.getElementById('pagination2').style.display=''
       if (tr[j].classList.contains('filteredList_kyc')){
       
         Array_data.push(tr[j])
-        console.log(Array_data)
+    
       }
     }
        
@@ -1671,10 +1670,10 @@ document.getElementById('pagination2').style.display=''
 for (let i = 0; i < Array_data.length; i += chunkSize) {
  
    const chunk = Array_data.slice(i, i + chunkSize);
-   console.log(Array_data)
+
  
    arr_chunk.push(chunk)
-   console.log(arr_chunk)
+
 }
 for ( let i = 0; i < arr_chunk.length; i++){
   arr_chunk[i].forEach(arr_chunk => {
@@ -1709,7 +1708,7 @@ const tr = table.getElementsByTagName("tr");
       tr[0].style.display='table-row';
       const pagnigation = document.getElementById('pagination2')
 const pagnigation_a = pagnigation.getElementsByClassName('pagination_function_filtered')
-console.log(pagnigation_a)
+
 
 pagnigation_a[0].id= 'active2'
 
@@ -1791,9 +1790,9 @@ var pagnigation_a = pagnigation.getElementsByTagName('a')
 pagnigation_a.forEach (pagnigation_a => {
   pagination_left2.addEventListener('click', function handleClick(event) {
 
-console.log('clicked')
+
 if (pagnigation_a.id== 'active2' && pagnigation_a.innerHTML-1 > 0) {
-console.log('clicked and active found')
+
 const table = document.getElementById("table_home");
 const tr = table.getElementsByTagName("tr");
 tr.forEach(Home_Page => {
@@ -1883,7 +1882,7 @@ document.getElementById('pagination3').style.display=''
       if (tr[j].classList.contains('filteredList_doxxed')){
       
         Array_data.push(tr[j])
-        console.log(Array_data)
+      
       }
     }
        
@@ -1891,10 +1890,10 @@ document.getElementById('pagination3').style.display=''
 for (let i = 0; i < Array_data.length; i += chunkSize) {
  
    const chunk = Array_data.slice(i, i + chunkSize);
-   console.log(Array_data)
+
  
    arr_chunk.push(chunk)
-   console.log(arr_chunk)
+
 }
 for ( let i = 0; i < arr_chunk.length; i++){
   arr_chunk[i].forEach(arr_chunk => {
@@ -1929,7 +1928,7 @@ const tr = table.getElementsByTagName("tr");
       tr[0].style.display='table-row';
       const pagnigation = document.getElementById('pagination3')
 const pagnigation_a = pagnigation.getElementsByClassName('pagination_function_doxxed')
-console.log(pagnigation_a)
+
 
 pagnigation_a[0].id= 'active3'
 
@@ -2010,9 +2009,9 @@ var pagnigation_a = pagnigation.getElementsByTagName('a')
 pagnigation_a.forEach (pagnigation_a => {
   pagination_left2.addEventListener('click', function handleClick(event) {
 
-console.log('clicked')
+
 if (pagnigation_a.id== 'active2' && pagnigation_a.innerHTML-1 > 0) {
-console.log('clicked and active found')
+
 const table = document.getElementById("table_home");
 const tr = table.getElementsByTagName("tr");
 tr.forEach(Home_Page => {
@@ -2047,11 +2046,10 @@ var pagination_left3 = document.getElementById('pagination_left3');
 
 pagnigation_a.forEach (pagnigation_a => {
 pagination_left3.addEventListener('click', function handleClick(event) {
-console.log('clicked')
-console.log(pagnigation_a)
-if (pagnigation_a.id== 'active3' && pagnigation_a.innerHTML-1 > 0) {console.log('found active')
 
-console.log('clicked and active found')
+if (pagnigation_a.id== 'active3' && pagnigation_a.innerHTML-1 > 0) {
+
+
 const table = document.getElementById("table_home");
 const tr = table.getElementsByTagName("tr");
 tr.forEach(Home_Page => {
@@ -2095,7 +2093,7 @@ count++
   {
 
   const paginatons_others = document.querySelectorAll('.pagination_others')
-  console.log(paginatons_others)
+
   paginatons_others.forEach(paginatons_others => {
     paginatons_others.style.display="none"
    
@@ -2197,14 +2195,14 @@ pagination_right3.addEventListener('click', function () {
 
 let counter = document.getElementById('active3').innerHTML
 
-  console.log(document.getElementsByClassName('filtered_'+counter)[0])
+
 var x = document.getElementsByClassName('filtered_'+counter)[0]
 var y = document.getElementsByClassName('filtered_'+(counter-1))[0]
 
-console.log(counter-1)
+
 x.id='active3'
 y.id='not_active'
-console.log(y)
+
 
 
 const table = document.getElementById("table_home");
@@ -2220,7 +2218,7 @@ if (pagnigation_a.length != pagination_number-1){
 
  
 
- console.log(counter)
+
 tr.forEach(Home_Page => {
      if (Home_Page.classList.contains('filteredList_doxxed_'+(pagination_number-1))) {
        Home_Page.style.display = 'table-row';
@@ -2228,7 +2226,7 @@ tr.forEach(Home_Page => {
     
      var arr_home_page = []
      arr_home_page.push(Home_Page)
-  console.log(arr_home_page)
+
    counter++;
 
      } 
@@ -2250,11 +2248,11 @@ pagination_right2.addEventListener('click', function () {
   let counter2 = document.getElementById('active2').innerHTML
   
 
-console.log(document.getElementsByClassName('filtered_'+counter2)[0])
+
 var x = document.getElementsByClassName('filtered_'+counter2)[0]
 var y = document.getElementsByClassName('filtered_'+(counter2-1))[0]
 
-console.log(counter2-1)
+
 x.id='active2'
 y.id='not_active'
 
@@ -2267,7 +2265,7 @@ const pagination_current = document.getElementById('active2')
 const pagination_number = pagination_current.innerHTML
 
 if (pagnigation_a2.length != pagination_number-1){
-console.log(pagination_number)
+
 
 
  
@@ -2278,7 +2276,6 @@ tr.forEach(Home_Page => {
        Home_Page.style.display = 'table-row';
        tr[0].style.display='table-row';
     
-   console.log(pagination_number)
    counter2++;
 
      } 
@@ -2306,10 +2303,12 @@ tr.forEach(Home_Page => {
   name: 'description',
   content: 'Use the tools on BSC Spotter to find Low-Cap Crypto Gems on Binance Smart Chain'
 },
-        {name: 'twitter:image', content: 'https://upcdn.io/kW15aw3WhQr9pTYxePdsemy'},
-{name: 'twitter:title', content: 'BSC Spotter'},
-{name:"twitter:card", content:"summary_large_image"},
-{name: 'twitter:description', content: 'Use the tools on BSC Spotter to find Low-Cap Crypto Gems on Binance Smart Chain'},
+{name: 'og:title', content:` Dashboard | BSC Spotter `},
+{name: 'og:description', content:`Find low-cap crypto gems on the Binance Smart Chain with BSC Spotter.`},
+{name: 'og:image', content:"https://upcdn.io/kW15aw3WhQr9pTYxePdsemy"},
+{name: 'og:url', content: `https://www.bscspotter.com/`},
+{name: 'og:type', content: 'website'},
+{name: 'og:site_name', content: 'BSC Spotter'},
 
         ]
       }

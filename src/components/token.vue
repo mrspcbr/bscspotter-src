@@ -657,6 +657,9 @@ else {
 {name: 'og:url', content: `https://bscspotter.com/token/${this.name}`},
 {name: 'og:type', content: 'website'},
 {name: 'og:site_name', content: 'BSC Spotter'},
+{name: 'twitter:image', content: this.logo},
+{name: 'twitter:description', content: `${this.name} is live on BSC Spotter, Check it out today!`},
+          {name: 'twitter:title', content: `${this.name} | BSC Spotter`},
         ]
       }
      }

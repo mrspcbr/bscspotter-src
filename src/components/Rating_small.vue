@@ -68,7 +68,7 @@ var kyc_score = 30
 }
 
 else {
-var kyc_score = 0
+var kyc_score = -5
 }
 
 

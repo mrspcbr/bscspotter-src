@@ -47,8 +47,8 @@
             <br>
             <h2>Link to Whitepaper:</h2>
             <input type="text" name="whitepaper" placeholder="https://bscspotter.com/whitepaper"> <br>
-            <h2>Link to Twitter:</h2>
-            <input type="text" name="twitter" placeholder="FULL URL, for example: https://twitter.com/...">
+            <h2>Twitter Username:</h2>
+            <input type="text" name="twitter" placeholder="For Example: BscSpotter ">
             <br>
             <h2>Link to Project's Website:</h2>
             <input type="text" name="website" placeholder="Website URL">
@@ -73,30 +73,30 @@
             
             </select> 
             
-            <input type="text" name="team_link" placeholder="Proof of Dox" id="dox_link">
+            <input type="text" name="team_link" placeholder="URL to Page Showing Doxxed Members" id="dox_link">
             <br>
             <h2>Current Date:</h2>
-            <input type="text" name="date" placeholder="(MM/DD/YYYY)"> <br>
+            <input type="text" name="date" placeholder="MM/DD/YYYY"> <br>
             <h2>Date of Token Launch:</h2>
-            <input type="text" name="launch_date" placeholder="(MM/DD/YYYY)">
+            <input type="text" name="launch_date" placeholder="MM/DD/YYYY">
            
             <h2>Brief Description of Project:</h2>
           
             <TextArea  data-placeholder="Edit me" class ='what_is' id = 'description' form="token_form" name="description" contenteditable="true" maxlength="280"  placeholder="Brief Description (MAX 280 characters)" > </TextArea >
             <br>
             <h2>Describe the Project:</h2>
-         <TextArea  data-placeholder="Edit me" class ='what_is' id = 'what_is_project' form="token_form" name="what_is_project" contenteditable="true" maxlength="750" placeholder="Describe Project (MAX 750 Characters)"> </TextArea >
+         <TextArea  data-placeholder="Edit me" class ='what_is' id = 'what_is_project' form="token_form" name="what_is_project" contenteditable="true" maxlength="750" placeholder="Describe Project in one Paragraph (MAX 750 Characters)"> </TextArea >
 
         <br>
         <h2>Describe the Token's Utility:</h2>
-         <TextArea  data-placeholder="Edit me" class ='what_is' id = 'what_is_token' form="token_form"  name='what_is_token' contenteditable="true" maxlength="750" placeholder="Describe Token's Utility (MAX 750 Characters)"> </TextArea >
+         <TextArea  data-placeholder="Edit me" class ='what_is' id = 'what_is_token' form="token_form"  name='what_is_token' contenteditable="true" maxlength="750" placeholder="Describe Token's Utility in one Paragraph (MAX 750 Characters)"> </TextArea >
          <br>
          <h2>Describe Future Plans:</h2>
-         <TextArea  data-placeholder="Edit me" class ='what_is' id = 'future_plans' form="token_form" name="future_plans" contenteditable="true" maxlength="600"  placeholder="Describe Future Plans (MAX 600 Characters)"> </TextArea >
+         <TextArea  data-placeholder="Edit me" class ='what_is' id = 'future_plans' form="token_form" name="future_plans" contenteditable="true" maxlength="600"  placeholder="Describe Future Plans in one Paragraph (MAX 600 Characters)"> </TextArea >
          
          <br>
          <h2>Contact Information:</h2>
-         <input type="text" name="team_contact" placeholder="EMAIL/Telegram">
+         <input type="text" name="team_contact" placeholder="EMAIL/Telegram for Team Contact">
             <input type="submit" value="Add">
         </form></div>
     </body>

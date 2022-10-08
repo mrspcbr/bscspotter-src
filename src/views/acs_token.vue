@@ -195,12 +195,12 @@ async function asyncCall() {
 var usd = "$"
 
   const bnb = await axios.get(
-                    'https://www.api.bscspotter.com/bnb')
+                    'https://api.bscspotter.com/bnb')
                     const bnb_data = JSON.stringify(bnb.data)
                     var bnb_value =bnb_data.replace(/"/g,'')
                    
 const acs = await axios.get(
-                    'https://www.api.bscspotter.com/price/'+contractaddress)
+                    'https://api.bscspotter.com/price/'+contractaddress)
                     const acs_data = JSON.stringify(acs.data)
                     const acs_value =acs_data.replace(/"/g,'')
                     document.getElementById("Token/BNB").innerHTML =acs_value
@@ -242,7 +242,7 @@ let mcap_final = mcap_string.replace(/[{<p id="BNB/U$SD"></p$>/g]/g, '')
 document.getElementById("supply").innerHTML = mcap_final
  var wallet_address= '0x204f4aA692F869959947e009C6299bF6F783Bb75'
 const liq = await axios.get(
-                    'https://www.api.bscspotter.com/liquidity/'+wallet_address)
+                    'https://api.bscspotter.com/liquidity/'+wallet_address)
 var liqdata=liq.data
 
 var liqvalue = JSON.stringify(liqdata)
@@ -261,7 +261,7 @@ var liq_format = form2.format(liq_fixed)
 document.getElementById("liq_val").innerHTML = await usd.bold()+  liq_format
 
   const response2 = await axios.get(
-                'https://www.api.bscspotter.com/chart/'+contractaddress)
+                'https://api.bscspotter.com/chart/'+contractaddress)
 
                 var data = response2.data
                 var results_max =[]
@@ -290,7 +290,7 @@ document.getElementById("liq_val").innerHTML = await usd.bold()+  liq_format
             
 
                 
-               const bnb_ohlc_response= await axios.get('https://www.api.bscspotter.com/bnb_ohlc')
+               const bnb_ohlc_response= await axios.get('https://api.bscspotter.com/bnb_ohlc')
                var bnb_ohlc_data = bnb_ohlc_response.data
                let A = bitquery_unix
                const findNumber = (array, number) => 
@@ -345,7 +345,7 @@ checkbox.addEventListener("change", (e) => {
 setTimeout(() => {
   console.log(liq_usd)
   var final_score_gems= document.getElementById('hide_test').innerHTML
-axios.post( 'https://www.api.bscspotter.com/token_home/'+contractaddress, {
+axios.post( 'https://api.bscspotter.com/token_home/'+contractaddress, {
 'liquidity': liq_usd,
 'contract_address': contractaddress,
 'price': TokenUS,

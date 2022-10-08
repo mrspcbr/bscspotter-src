@@ -116,7 +116,7 @@
       async function create_table(){
   
   try {
-      const listing_all = await axios.get('https://www.api.bscspotter.com/promoted_listing');
+      const listing_all = await axios.get('https://api.bscspotter.com/promoted_listing');
        var Array_data = listing_all.data;
        const chunkSize = 30;
        var arr_chunk=[]
@@ -161,7 +161,7 @@ var pagination_buttons = document.getElementById('pagination');
  const doxxed = "Doxxed"
    var contract_address = data[i].token
  
-   const listing = await axios.get('https://www.api.bscspotter.com/listings/'+contract_address)
+   const listing = await axios.get('https://api.bscspotter.com/listings/'+contract_address)
  const listing_data = listing.data
  const listing_name = listing_data.name
  const listing_symbol = listing_data.symbol
@@ -172,7 +172,7 @@ var pagination_buttons = document.getElementById('pagination');
  const token = listing_data.token
 
  document.getElementById('name_'+token).innerHTML=listing_name
- document.getElementById('link_'+token+ '_name').href="http://www.bscspotter.com/token/"+listing_name
+ document.getElementById('link_'+token+ '_name').href="https://www.bscspotter.com/token/"+listing_name
  document.getElementById('icon_'+token).innerHTML='<img data-v-fae5bece src="'+logo_link_api+ '" class="listing_logo">'
  
  if (kyc==Verified){
@@ -182,7 +182,7 @@ var pagination_buttons = document.getElementById('pagination');
   document.getElementById('doxxed_'+token).innerHTML="<i class='fa fa-users' style='font-size: clamp(20px, 2.4vw, 30px);color:#DBAC04'></i>"
  }
  
-  axios.get('https://www.api.bscspotter.com/token_home_price/'+contract_address)
+  axios.get('https://api.bscspotter.com/token_home_price/'+contract_address)
  .then(function (response) {
  
  var data_response = response.data;
@@ -2326,6 +2326,9 @@ tr.forEach(Home_Page => {
   
   </script>
   <style scoped>
+    #rating_dropdown{
+      cursor: pointer;
+    }
     .top{
       min-width: 80px;
     }

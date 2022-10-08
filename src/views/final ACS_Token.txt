@@ -192,12 +192,12 @@ async function asyncCall() {
 var usd = "$"
 
   const bnb = await axios.get(
-                    'https://www.api.bscspotter.com/bnb')
+                    'https://api.bscspotter.com/bnb')
                     const bnb_data = JSON.stringify(bnb.data)
                     var bnb_value =bnb_data.replace(/"/g,'')
                    
 const acs = await axios.get(
-                    'https://www.api.bscspotter.com/price/'+contractaddress)
+                    'https://api.bscspotter.com/price/'+contractaddress)
                     const acs_data = JSON.stringify(acs.data)
                     const acs_value =acs_data.replace(/"/g,'')
                     document.getElementById("Token/BNB").innerHTML =acs_value
@@ -239,7 +239,7 @@ let mcap_final = mcap_string.replace(/[{<p id="BNB/U$SD"></p$>/g]/g, '')
 document.getElementById("supply").innerHTML = mcap_final
  var contract_address= sessionStorage.getItem('acs_contract_address')
 const liq = await axios.get(
-                    'https://www.api.bscspotter.com/liquidity/'+contract_address)
+                    'https://api.bscspotter.com/liquidity/'+contract_address)
 var liqdata=liq.data
 
 var liqvalue = JSON.stringify(liqdata)
@@ -258,7 +258,7 @@ var liq_format = form2.format(liq_fixed)
 document.getElementById("liq_val").innerHTML = usd.bold()+  liq_format
 
   const response2 = await axios.get(
-                'https://www.api.bscspotter.com/chart/'+contractaddress)
+                'https://api.bscspotter.com/chart/'+contractaddress)
 
                 var data = response2.data
                 var results_max =[]
@@ -287,7 +287,7 @@ document.getElementById("liq_val").innerHTML = usd.bold()+  liq_format
             
 
                 
-               const bnb_ohlc_response= await axios.get('https://www.api.bscspotter.com/bnb_ohlc')
+               const bnb_ohlc_response= await axios.get('https://api.bscspotter.com/bnb_ohlc')
                var bnb_ohlc_data = bnb_ohlc_response.data
                let A = bitquery_unix
                const findNumber = (array, number) => 

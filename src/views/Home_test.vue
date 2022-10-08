@@ -144,7 +144,7 @@ export default {
 async function get_info_acs(){ 
 
   var contract_address = '0x01b42466d39675db204Fc9204DF6f6Ef0370892E'
- axios.get('https://www.api.bscspotter.com/token_home_price/'+contract_address)
+ axios.get('https://api.bscspotter.com/token_home_price/'+contract_address)
 .then(function (response) {
 
 var data_response = response.data;
@@ -210,7 +210,7 @@ console.log(liquidity, price, logo, rating)
 async function get_info_zpro(){ 
 
   var contract_address = '0xc8c488fDbBB2E72E41710Ade67784f0812160210'
- axios.get('https://www.api.bscspotter.com/token_home_price/'+contract_address)
+ axios.get('https://api.bscspotter.com/token_home_price/'+contract_address)
 .then(function (response) {
 
 var data_response = response.data;
@@ -284,7 +284,7 @@ const Verified = "Verified"
 const doxxed = "Doxxed"
   var contract_address = '0x9528cCEb678B90dAf02cA5cA45622D5cBaF58A30'
 
-  const listing = await axios.get('https://www.api.bscspotter.com/listings/'+contract_address)
+  const listing = await axios.get('https://api.bscspotter.com/listings/'+contract_address)
 const listing_data = listing.data
 const listing_name = listing_data.name
 const listing_symbol = listing_data.symbol
@@ -302,7 +302,7 @@ if (team ==doxxed){
   document.getElementById('doxxed_2').innerHTML="<i class='fa fa-users' style='font-size: 25px;color:#DBAC04'></i>"
 }
 
- axios.get('https://www.api.bscspotter.com/token_home_price/'+contract_address)
+ axios.get('https://api.bscspotter.com/token_home_price/'+contract_address)
 .then(function (response) {
 
 var data_response = response.data;
@@ -373,7 +373,7 @@ const Verified = "Verified"
 const doxxed = "Doxxed"
   var contract_address = '0xae4d7b8e83bacc7469615565aa0b5030f01334b5'
 
-  const listing = await axios.get('https://www.api.bscspotter.com/listings/'+contract_address)
+  const listing = await axios.get('https://api.bscspotter.com/listings/'+contract_address)
 const listing_data = listing.data
 const listing_name = listing_data.name
 const listing_symbol = listing_data.symbol
@@ -391,7 +391,7 @@ if (team ==doxxed){
   document.getElementById('doxxed_3').innerHTML="<i class='fa fa-users' style='font-size: 25px;color:#DBAC04'></i>"
 }
 
- axios.get('https://www.api.bscspotter.com/token_home_price/'+contract_address)
+ axios.get('https://api.bscspotter.com/token_home_price/'+contract_address)
 .then(function (response) {
 
 var data_response = response.data;
@@ -462,7 +462,7 @@ const Verified = "Verified"
 const doxxed = "Doxxed"
   var contract_address = '0x5138868ed1814be113227b8c6025cdc46d9d1d16'
 
-  const listing = await axios.get('https://www.api.bscspotter.com/listings/'+contract_address)
+  const listing = await axios.get('https://api.bscspotter.com/listings/'+contract_address)
 const listing_data = listing.data
 const listing_name = listing_data.name
 const listing_symbol = listing_data.symbol
@@ -480,7 +480,7 @@ if (team ==doxxed){
   document.getElementById('doxxed_4').innerHTML="<i class='fa fa-users' style='font-size: 25px;color:#DBAC04'></i>"
 }
 
- axios.get('https://www.api.bscspotter.com/token_home_price/'+contract_address)
+ axios.get('https://api.bscspotter.com/token_home_price/'+contract_address)
 .then(function (response) {
 
 var data_response = response.data;

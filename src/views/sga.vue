@@ -100,7 +100,7 @@ export default {
 async function create_table(){
 
    try {
-       const listing_all = await axios.get('https://www.api.bscspotter.com/listings/');
+       const listing_all = await axios.get('https://api.bscspotter.com/listings/');
         const Array_data = listing_all.data;
      buildTable(Array_data)
 	 function buildTable(data){
@@ -126,7 +126,7 @@ const Verified = "Verified"
 const doxxed = "Doxxed"
   var contract_address = data[i].token
 
-  const listing = await axios.get('https://www.api.bscspotter.com/listings/'+contract_address)
+  const listing = await axios.get('https://api.bscspotter.com/listings/'+contract_address)
 const listing_data = listing.data
 const listing_name = listing_data.name
 const listing_symbol = listing_data.symbol
@@ -145,7 +145,7 @@ if (team ==doxxed){
  document.getElementById('doxxed_'+symbol).innerHTML="<i class='fa fa-users' style='font-size: 25px;color:#DBAC04'></i>"
 }
 
- axios.get('https://www.api.bscspotter.com/token_home_price/'+contract_address)
+ axios.get('https://api.bscspotter.com/token_home_price/'+contract_address)
 .then(function (response) {
 
 var data_response = response.data;

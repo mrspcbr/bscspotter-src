@@ -185,7 +185,7 @@ export default {
         },
         mounted (){
           async function recent_add(){
-  const data= await axios.get('https://www.api.bscspotter.com/listings')
+  const data= await axios.get('https://api.bscspotter.com/listings')
 
   const data_json=data.data
   
@@ -224,7 +224,7 @@ document.getElementById('new_symbol_2_smallDis').innerHTML=data_reverse[2].symbo
 
 async function top_gainers(){
 //_smallDis
-const data = await axios.get('https://www.api.bscspotter.com/top_gainers')
+const data = await axios.get('https://api.bscspotter.com/top_gainers')
 const data_json=data.data
 
 
@@ -261,7 +261,7 @@ document.getElementById('gain_perc_3_smallDis').innerHTML=data_json[0].percent_c
 
 async function trending(){
 
-const data = await axios.get('https://www.api.bscspotter.com/token_views/')
+const data = await axios.get('https://api.bscspotter.com/token_views/')
 const data_reverse = data.data.reverse()
 const data_json=data_reverse
 

@@ -59,7 +59,7 @@ export default {
         mounted (){
           async function summary_btc(){
 var form2 = Intl.NumberFormat('en-US')
-const btc = await axios.get('https://www.api.bscspotter.com/summary/btcusdt')
+const btc = await axios.get('https://api.bscspotter.com/summary/btcusdt')
 const response = btc.data
 const change_percent = (response.price.change.percentage)*100
 const percent=parseFloat(change_percent).toFixed(2)+"%"
@@ -83,7 +83,7 @@ document.getElementById('btc').innerHTML="  Bitcoin (BTC): <b>$"+form2.format(va
 
 async function summary_eth(){
 var form2 = Intl.NumberFormat('en-US')
-const eth = await axios.get('https://www.api.bscspotter.com/summary/ethusdt')
+const eth = await axios.get('https://api.bscspotter.com/summary/ethusdt')
 const response = eth.data
 const change_percent = (response.price.change.percentage)*100
 const percent=parseFloat(change_percent).toFixed(2)+"%"
@@ -100,7 +100,7 @@ document.getElementById('eth').innerHTML="Ethereum (ETH): <b>$"+form2.format(val
 
 async function summary_bnb(){
 var form2 = Intl.NumberFormat('en-US')
-const bnb = await axios.get('https://www.api.bscspotter.com/summary/bnbusdt')
+const bnb = await axios.get('https://api.bscspotter.com/summary/bnbusdt')
 const response = bnb.data
 const change_percent = (response.price.change.percentage)*100
 const percent=parseFloat(change_percent).toFixed(2)+"%"
@@ -123,7 +123,7 @@ document.getElementById('bnb_smallDis').innerHTML="Binance Coin (BNB): <b>$"+for
 
 async function summary_ada(){
 var form2 = Intl.NumberFormat('en-US')
-const bnb = await axios.get('https://www.api.bscspotter.com/summary/adausdt')
+const bnb = await axios.get('https://api.bscspotter.com/summary/adausdt')
 const response = bnb.data
 const change_percent = (response.price.change.percentage)*100
 const percent=parseFloat(change_percent).toFixed(2)+"%"

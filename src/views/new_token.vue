@@ -4,7 +4,7 @@
      <body>
       
         <div id="form">
-        <form action="https://www.api.bscspotter.com/add_request" method="post" id="token_form">
+        <form action="https://api.bscspotter.com/add_request" method="post" id="token_form">
           <h2> Contract Address (BSC): </h2>
             <input type="text" name="token" placeholder="Binance Smart Chain Token Address"> <br>
            
@@ -105,7 +105,7 @@
 </template>
 
 <script>
-  ///https://www.api.bscspotter.com/add_request
+  ///https://api.bscspotter.com/add_request
 import emailjs from '@emailjs/browser';
 import { Upload } from "upload-js";
 const upload = new Upload({ apiKey: "free" });

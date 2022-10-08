@@ -397,7 +397,7 @@ import "@egjs/flicking-plugins/dist/pagination.css";
            }
         },
        async created(){
-      const response = await axios.get('https://www.api.bscspotter.com/listings_symbol')
+      const response = await axios.get('https://api.bscspotter.com/listings_symbol')
        var response_data = response.data
        var found = false;
        var str = this.id.split('_').join(' ')
@@ -419,7 +419,7 @@ let obj = await response_data.find(o => o.name == id_fix);
 if (obj !== undefined){
 const loading_box = document.getElementById('loading_box')
 loading_box.style.display='none'
-const listing_response = await axios.get ('https://www.api.bscspotter.com/get_token_info/'+id_fix)
+const listing_response = await axios.get ('https://api.bscspotter.com/get_token_info/'+id_fix)
 
            const listing_response_data = listing_response.data
            this.token_page=(listing_response_data)
@@ -461,7 +461,7 @@ document.getElementById("contract_div").innerHTML = listing_response_data.contra
 
 this.isMounted =  true
 
-var view_count =  await axios.get('https://www.api.bscspotter.com/token_views/'+symbol)
+var view_count =  await axios.get('https://api.bscspotter.com/token_views/'+symbol)
 
 var views = Number(view_count.data.views)
 var view_number = views+1
@@ -472,7 +472,7 @@ var view_number = views+1
 
 
 
-    axios.get('https://www.api.bscspotter.com/get_token_page/'+id_fix).then(response => {
+    axios.get('https://api.bscspotter.com/get_token_page/'+id_fix).then(response => {
       this.token_page_price = response.data
    var liq_usd = response.data.liq_usd
    var liq_fixed = (parseFloat(liq_usd).toFixed(2))
@@ -576,7 +576,7 @@ document.getElementById("hide").innerHTML = wallet_address
       setTimeout(() => {
 
         
-axios.post( 'https://www.api.bscspotter.com/token_views/', {
+axios.post( 'https://api.bscspotter.com/token_views/', {
   
   'symbol': symbol,
   'views': view_number,
@@ -598,7 +598,7 @@ axios.post( 'https://www.api.bscspotter.com/token_views/', {
 
   var final_score_gems= document.getElementById('hide_test').innerHTML
 
-axios.post( 'https://www.api.bscspotter.com/token_home/'+contractaddress, {
+axios.post( 'https://api.bscspotter.com/token_home/'+contractaddress, {
   
 'liquidity': liq_usd,
 'contract_address': contractaddress,

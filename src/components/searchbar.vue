@@ -56,7 +56,7 @@ window.addEventListener('load', async function (){
   
 function open_search ( ){
 async function get_listings (){
-  const data= await axios.get('https://www.api.bscspotter.com/listings')
+  const data= await axios.get('https://api.bscspotter.com/listings')
   const data_json=data.data
 
 const tokenlist = document.getElementById('tokenlist');
@@ -80,7 +80,7 @@ if(searchString==""){displayCharacters()
 
 const loadCharacters = async () => {
     try {
-        const res = await fetch('https://www.api.bscspotter.com/listings/');
+        const res = await fetch('https://api.bscspotter.com/listings/');
         tokens = await res.json();
      
  

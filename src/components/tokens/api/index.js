@@ -17,7 +17,7 @@ export default(baseCurrency) => ({
 var address = {baseCurrency, }
 
       const response = await axios.get(
-        'https://www.api.bscspotter.com/info/'+baseCurrency)
+        'https://api.bscspotter.com/info/'+baseCurrency)
         
         const coin = response.data
           
@@ -51,7 +51,7 @@ var address = {baseCurrency, }
         try{
         
             const response2 = await axios.get(
-                'https://www.api.bscspotter.com/chart/'+baseCurrency)
+                'https://api.bscspotter.com/chart/'+baseCurrency)
 
                 const data = await response2.data
                 if (response2.response && response2.response === 'Error' || response2.data.length === 0) {
@@ -84,7 +84,7 @@ var address = {baseCurrency, }
                                
                            
                            
-                            const bnb_ohlc_response= await axios.get('https://www.api.bscspotter.com/bnb_ohlc')
+                            const bnb_ohlc_response= await axios.get('https://api.bscspotter.com/bnb_ohlc')
                             var bnb_ohlc_data = bnb_ohlc_response.data
                          var arr4 =  bnb_ohlc_data
                         var arr3= uniqueChars

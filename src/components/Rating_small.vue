@@ -85,7 +85,7 @@ var utility_score = 100
 
 
 else if (utility_html==L2){
-var utility_score = 80
+var utility_score = 90
 }
 
 else if (utility_html==L3){

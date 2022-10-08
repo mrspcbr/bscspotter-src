@@ -650,7 +650,7 @@ else {
   content: this.desc.slice(0,150),
 },
 
-
+{name: 'twitter:card', content: 'summary'},
 {name: 'og:title', content:`${this.name} | BSC Spotter `},
 {name: 'og:description', content:`${this.name} is live on BSC Spotter, Check it out today!`},
 {name: 'og:image', content: this.logo},
